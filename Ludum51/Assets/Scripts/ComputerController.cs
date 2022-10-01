@@ -37,6 +37,7 @@ public class ComputerController : MonoBehaviour
     }
     public void PressKey()
     {
+        alarmText.transform.gameObject.SetActive(false);
         gameManager.IsKeyPressed = true;
         Debug.Log("Tecla E Pulsada");
     }
