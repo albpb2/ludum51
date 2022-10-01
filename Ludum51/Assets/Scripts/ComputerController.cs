@@ -25,11 +25,11 @@ public class ComputerController : MonoBehaviour
     {
         while (true)
         {
-            gameManager.isKeyPressed = false;
+            gameManager.IsKeyPressed = false;
             yield return new WaitForSeconds(10);
             alarmText.transform.gameObject.SetActive(true);
 
-            if (!gameManager.isKeyPressed)
+            if (!gameManager.IsKeyPressed)
             {
                 Debug.Log("No has pulsado la alarma a tiempo");
             }
@@ -37,6 +37,7 @@ public class ComputerController : MonoBehaviour
     }
     public void PressKey()
     {
-        gameManager.isKeyPressed = true;
+        gameManager.IsKeyPressed = true;
+        Debug.Log("Tecla E Pulsada");
     }
 }

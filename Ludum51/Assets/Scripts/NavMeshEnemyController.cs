@@ -12,7 +12,6 @@ public class NavMeshEnemyController : MonoBehaviour
     private void Start()
     {
         fillEnemyHealthBar.slider.gameObject.SetActive(false);
-        ReceiveDamage(10);
     }
     private void OnTriggerEnter(Collider other)
     {
