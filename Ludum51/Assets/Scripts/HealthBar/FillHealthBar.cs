@@ -6,20 +6,21 @@ using UnityEngine.UI;
 public class FillHealthBar : MonoBehaviour
 {
    // public PlayerController playerController;
-    public Image fillImage;
-    public Slider slider;
+    [SerializeField] Image fillImage;
+    [SerializeField] Slider slider;
+    [SerializeField] NavMeshAgentController navMeshAgentController;
 
     // Start is called before the first frame update
     void awake()
     {
-        //slider.maxValue = playerController.HpMax;
+        slider.maxValue = navMeshAgentController.HpMax;
         FillSliderValue();
     }
     
     public void FillSliderValue()
     {
-        //float fillValue = (float)playerController.HP / (float)playerController.HpMax;
-       // slider.value = fillValue;
+        float fillValue = (float)navMeshAgentController.HP / (float)navMeshAgentController.HpMax;
+        slider.value = fillValue;
         if (slider.value <= slider.minValue)
         {
             fillImage.enabled = false;

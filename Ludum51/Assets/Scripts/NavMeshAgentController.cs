@@ -5,6 +5,10 @@ using UnityEngine.AI;
 
 public class NavMeshAgentController : MonoBehaviour
 {
+    public float HP { get; set; } = 100f;
+    public float HpMax { get; set; } = 100f;
+
+    [SerializeField] FillHealthBar fillHealthBar;
     [SerializeField] float m_Speed = 5f;
     [SerializeField] float maxComputerSearchDistance = 1.5f;
     [SerializeField] float radius = 1.5f;
@@ -16,6 +20,8 @@ public class NavMeshAgentController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fillHealthBar.FillSliderValue();
+        ReceiveDamage(20);
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -56,6 +62,17 @@ public class NavMeshAgentController : MonoBehaviour
                     computerController.PressKey();
                 }
             }
+        }
+    }
+
+    public void ReceiveDamage(int damage)
+    {
+        if (damage > 0)
+        {
+            HP -= damage;
+            fillHealthBar.gameObject.SetActive(true);
+            fillHealthBar.FillSliderValue();
+            Debug.Log("ouch, it hurts" + HP);
         }
     }
 }
