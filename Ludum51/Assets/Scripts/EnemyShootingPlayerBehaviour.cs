@@ -24,13 +24,7 @@ public class EnemyShootingPlayerBehaviour : MonoBehaviour
     {
         if (_isPlayerInTrigger)
         {
-            Vector3 targetDirection = _playerTransform.position - _parentTransform.position;
-            const int rotationSpeed = 5;
-            float singleStep = rotationSpeed * Time.deltaTime;
-            Vector3.RotateTowards(_parentTransform.forward, targetDirection, singleStep, 0.0f);
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
-            Debug.DrawRay(_parentTransform.position, newDirection, Color.red);
-            _parentTransform.rotation = Quaternion.LookRotation(newDirection);
+            _parentTransform.RotateStepTowards(_playerTransform.position);
         }
     }
 
