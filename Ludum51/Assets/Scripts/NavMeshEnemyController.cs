@@ -26,6 +26,10 @@ public class NavMeshEnemyController : MonoBehaviour
             fillEnemyHealthBar.slider.gameObject.SetActive(true);
             fillEnemyHealthBar.FillEnemySliderValue();
             Debug.Log("ouch, it hurts" + HP);
+            if (HP <= 0)
+            {
+                Destroy(transform.parent.gameObject);
+            }
         }
     }
 }

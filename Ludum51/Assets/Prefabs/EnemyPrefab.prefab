@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 84532559976395384}
   - component: {fileID: 84532559976395385}
   - component: {fileID: 84532559976395382}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3854,7 +3854,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 63
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -3862,11 +3862,11 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 2
     inside: 1
     outside: 0
-    enter: 0
+    enter: 1
     exit: 0
     colliderQueryMode: 0
     radiusScale: 1
@@ -4886,7 +4886,7 @@ GameObject:
   - component: {fileID: 84532560243110369}
   - component: {fileID: 84532560243110371}
   - component: {fileID: 84532560243110368}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerShootingArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4942,9 +4942,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1268829171192560490}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyPrefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4974,7 +4974,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1268829171469003017}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5012,7 +5012,7 @@ GameObject:
   - component: {fileID: 1268829171563505415}
   - component: {fileID: 1268829171563505409}
   - component: {fileID: 1268829171563505414}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5090,9 +5090,9 @@ GameObject:
   - component: {fileID: 1268829171818171519}
   - component: {fileID: 1268829171818171516}
   - component: {fileID: 1268829171818171517}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5170,7 +5170,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268829171818171490}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.3919954
   m_Height: 2.7839909
@@ -5222,7 +5222,7 @@ GameObject:
   - component: {fileID: 1268829172038159915}
   - component: {fileID: 1268829172038159909}
   - component: {fileID: 1268829172038159914}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: EnemyHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5327,7 +5327,7 @@ GameObject:
   - component: {fileID: 1268829172685214524}
   - component: {fileID: 1268829172685214526}
   - component: {fileID: 1268829172685214527}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5405,7 +5405,7 @@ GameObject:
   - component: {fileID: 1268829172781295401}
   - component: {fileID: 1268829172781295402}
   - component: {fileID: 1268829172781295397}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

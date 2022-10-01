@@ -23,6 +23,12 @@ public class PlayerGun : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        _particleSystem.GetCollisionEvents(other, _collisionEvents);
+        if (other.CompareTag(Tags.Enemy))
+        {
+            Debug.Log("Player hit");
+            var playerHealth = other.GetComponent<NavMeshEnemyController>();
+            const int gunDamage = 50;
+            playerHealth.ReceiveDamage(gunDamage);
+        }
     }
 }
