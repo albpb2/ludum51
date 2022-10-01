@@ -23,7 +23,6 @@ public class PlayerGun : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("Hit");
         _particleSystem.GetCollisionEvents(other, _collisionEvents);
     }
 }
