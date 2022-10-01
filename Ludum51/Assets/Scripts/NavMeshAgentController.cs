@@ -12,6 +12,7 @@ public class NavMeshAgentController : MonoBehaviour
     [SerializeField] float m_Speed = 5f;
     [SerializeField] float maxComputerSearchDistance = 1.5f;
     [SerializeField] float radius = 1.5f;
+    [SerializeField] Canvas gameOverCanvas;
 
     private Rigidbody rigidbody;
     private Plane plane = new Plane(Vector3.up, 0);
@@ -72,6 +73,11 @@ public class NavMeshAgentController : MonoBehaviour
             HP -= damage;
             fillHealthBar.gameObject.SetActive(true);
             fillHealthBar.FillSliderValue();
+            if(HP <= 0)
+            {
+                gameOverCanvas.gameObject.SetActive(true);
+                Time.timeScale = 0f;
+            }
             Debug.Log("ouch, it hurts" + HP);
         }
     }
