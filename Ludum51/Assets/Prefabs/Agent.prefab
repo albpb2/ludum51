@@ -5575,10 +5575,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillHealthBar: {fileID: 610352780}
-  m_Speed: 5
+  m_Speed: 10
   maxComputerSearchDistance: 1.5
   radius: 1.5
-  gameOverCanvas: {fileID: 0}
 --- !u!54 &2838025366168801880
 Rigidbody:
   m_ObjectHideFlags: 0
