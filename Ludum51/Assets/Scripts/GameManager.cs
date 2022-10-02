@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Canvas pauseMenuCanvas;
 
     private ComputerController[] computerControllers;
-    public bool pauseToggle;
+    public bool IsPaused { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +52,8 @@ public class GameManager : MonoBehaviour
 
     public void ToggleMenu()
     {
-        if (pauseToggle)
+        IsPaused = !IsPaused;
+        if (!IsPaused)
         {
             Time.timeScale = 1;
             pauseMenuCanvas.gameObject.SetActive(false);
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             pauseMenuCanvas.gameObject.SetActive(true);
         }
-        pauseToggle = !pauseToggle;
+        
     }
 
     public void GameOver()
