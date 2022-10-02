@@ -5,8 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Canvas gameOverCanvas;
+    [SerializeField] Canvas pauseMenuCanvas;
 
     private ComputerController[] computerControllers;
+    public bool pauseToggle;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,28 @@ public class GameManager : MonoBehaviour
             Debug.Log("None Computer recognized/detected");
         }
         
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            ToggleMenu();
+        }
+    }
+
+    public void ToggleMenu()
+    {
+        if (pauseToggle)
+        {
+            Time.timeScale = 1;
+            pauseMenuCanvas.gameObject.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 0;
+            pauseMenuCanvas.gameObject.SetActive(true);
+        }
+        pauseToggle = !pauseToggle;
     }
 
     public void GameOver()
