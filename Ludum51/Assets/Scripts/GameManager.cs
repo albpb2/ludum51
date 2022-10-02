@@ -90,7 +90,6 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             pausePanel.SetActive(true);
         }
-        
     }
 
     public void GameOver()

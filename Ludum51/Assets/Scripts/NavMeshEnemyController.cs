@@ -14,8 +14,9 @@ public class NavMeshEnemyController : MonoBehaviour
     private DamageHandler _damageHandler;
     private EnemyDetectionArea _enemyDetectionArea;
     private NavMeshAgent _agent;
+    private EnemyPatrolBehaviour _enemyPatrolBehaviour;
 
-    private bool _isPlayerInArea;
+    public bool IsPlayerInArea { get; private set; }
     public int HP { get; set; } = 100;
     public int HpMax { get; set; } = 100;
 
@@ -26,6 +27,7 @@ public class NavMeshEnemyController : MonoBehaviour
         _damageHandler = GetComponent<DamageHandler>();
         _agent = GetComponent<NavMeshAgent>();
         _enemyDetectionArea = GetComponent<EnemyDetectionArea>();
+        _enemyPatrolBehaviour = GetComponent<EnemyPatrolBehaviour>();
 
         _damageHandler.OnDamageTaken += ReceiveDamage;
 
@@ -45,25 +47,21 @@ public class NavMeshEnemyController : MonoBehaviour
         _damageHandler.OnDamageTaken -= ReceiveDamage;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("you are dead");
-    }
-
     public void StopFollowingPlayer()
     {
-        _isPlayerInArea = false;
+        IsPlayerInArea = false;
+        _enemyPatrolBehaviour.InvokeToggleDestination();
     }
 
     public void FollowPlayer(GameObject player)
     {
-        _isPlayerInArea = true;
+        IsPlayerInArea = true;
         StartCoroutine(UpdatePlayerPosition(player));
     }
 
     IEnumerator UpdatePlayerPosition(GameObject player)
     {
-        while (_isPlayerInArea)
+        while (IsPlayerInArea)
         {
             _agent.destination = player.transform.position;
             yield return new WaitForSeconds(.5f);
