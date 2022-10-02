@@ -16,8 +16,9 @@ public class EnemyGun : MonoBehaviour
         if (other.CompareTag(Tags.Agent))
         {
             Debug.Log("Player hit");
-            var playerHealth = other.GetComponent<PlayerHealth>();
-            playerHealth.TakeDamage();
+            var playerHealth = other.GetComponent<NavMeshAgentController>();
+            const int gunDamage = 20;
+            playerHealth.ReceiveDamage(gunDamage);
         }
     }
 

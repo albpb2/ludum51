@@ -22,7 +22,6 @@ public class NavMeshAgentController : MonoBehaviour
     void Start()
     {
         fillHealthBar.FillSliderValue();
-        ReceiveDamage(20);
         gameManager = FindObjectOfType<GameManager>();
         rigidbody = GetComponent<Rigidbody>();
     }

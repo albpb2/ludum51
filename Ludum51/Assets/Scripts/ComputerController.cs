@@ -1,49 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEngine.UI;
 using UnityEngine;
 
 public class ComputerController : MonoBehaviour
 {
-    private GameManager gameManager;
+    private GameManager _gameManager;
 
     public TextMeshProUGUI alarmText;
     public bool isHacked;
 
+    private ComputerSystem _computerSystem;
+
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
-        StartCoroutine("ManageAlarm");
+        _gameManager = FindObjectOfType<GameManager>();
+        _computerSystem = FindObjectOfType<ComputerSystem>();
+        _computerSystem.OnKeyPressed += DisableAlarmText;
+        _computerSystem.OnCountdownRestarted += EnableAlarmText;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
-    }
-    IEnumerator ManageAlarm()
-    {
-        while (true)
+        if (_computerSystem != null)
         {
-            gameManager.IsKeyPressed = false;
-            yield return new WaitForSeconds(10);
-            alarmText.transform.gameObject.SetActive(true);
-
-            if (!gameManager.IsKeyPressed)
-            {
-                Debug.Log("No has pulsado la alarma a tiempo");
-                gameManager.GameOver();
-            }
+            _computerSystem.OnKeyPressed += DisableAlarmText;
+            _computerSystem.OnCountdownRestarted += EnableAlarmText;
         }
     }
+
+    private void OnDisable()
+    {
+        _computerSystem.OnKeyPressed -= DisableAlarmText;
+        _computerSystem.OnCountdownRestarted -= EnableAlarmText;
+    }
+
     public void PressKey()
     {
-        alarmText.transform.gameObject.SetActive(false);
-        gameManager.IsKeyPressed = true;
+        _computerSystem.PressKey();
         isHacked = true;
-        gameManager.VictoryCheck();
-        Debug.Log("Tecla E Pulsada");
+        _gameManager.VictoryCheck();
+    }
+
+    private void EnableAlarmText()
+    {
+        alarmText.transform.gameObject.SetActive(true);
+    }
+
+    private void DisableAlarmText()
+    {
+        alarmText.transform.gameObject.SetActive(false);
     }
 }

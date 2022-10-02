@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 159802943989398974}
   - component: {fileID: 7821996220727017093}
   - component: {fileID: 375640436795815593}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4404,7 +4404,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 119
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -4412,15 +4412,16 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 2
-    inside: 1
+    inside: 0
     outside: 0
-    enter: 0
+    enter: 1
     exit: 0
     colliderQueryMode: 0
     radiusScale: 1
-    primitives: []
+    primitives:
+    - {fileID: 0}
   SubModule:
     serializedVersion: 2
     enabled: 0
@@ -5452,7 +5453,7 @@ GameObject:
   - component: {fileID: 2838025366168801831}
   - component: {fileID: 2838025366168801830}
   - component: {fileID: 2838025366168801880}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Agent
   m_TagString: Agent
   m_Icon: {fileID: 0}
@@ -5533,7 +5534,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2838025366168801825}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
@@ -5606,7 +5607,7 @@ GameObject:
   - component: {fileID: 8473207793081834719}
   - component: {fileID: 4950736337888788626}
   - component: {fileID: 6783116635323635611}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

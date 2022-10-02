@@ -10,15 +10,15 @@ public class DetectionZoneScript : MonoBehaviour
     private void Start()
     {
         enemy = FindObjectsOfType<NavMeshAgent>();
-        
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Agent"))
         {
             for(int i = 0; i < enemy.Length; i++)
             {
-                if (!enemy[i].CompareTag("Agent"))
+                if (enemy[i] != null && !enemy[i].CompareTag("Agent"))
                 {
                     enemy[i].destination = transform.position;
                 }

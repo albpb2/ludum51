@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public bool IsKeyPressed { get; set; }
     [SerializeField] Canvas gameOverCanvas;
 
     private ComputerController[] computerControllers;
@@ -14,12 +13,6 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         computerControllers = FindObjectsOfType<ComputerController>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void VictoryCheck()
