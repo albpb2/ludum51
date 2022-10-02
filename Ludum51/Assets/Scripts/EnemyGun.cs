@@ -17,7 +17,7 @@ public class EnemyGun : MonoBehaviour
         {
             Debug.Log("Player hit");
             var playerHealth = other.GetComponent<NavMeshAgentController>();
-            const int gunDamage = 20;
+            const int gunDamage = 2;
             playerHealth.ReceiveDamage(gunDamage);
         }
     }

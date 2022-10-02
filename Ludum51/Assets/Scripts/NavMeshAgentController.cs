@@ -12,7 +12,9 @@ public class NavMeshAgentController : MonoBehaviour
     [SerializeField] float m_Speed = 5f;
     [SerializeField] float maxComputerSearchDistance = 1.5f;
     [SerializeField] float radius = 1.5f;
-    
+
+    private Animator playerAnimator;
+    private string colorChange = "PlayerColorChangeByHit";
     private GameManager gameManager;
     private Rigidbody rigidbody;
     private Plane plane = new Plane(Vector3.up, 0);
@@ -24,6 +26,7 @@ public class NavMeshAgentController : MonoBehaviour
         fillHealthBar.FillSliderValue();
         gameManager = FindObjectOfType<GameManager>();
         rigidbody = GetComponent<Rigidbody>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -73,7 +76,8 @@ public class NavMeshAgentController : MonoBehaviour
             HP -= damage;
             fillHealthBar.gameObject.SetActive(true);
             fillHealthBar.FillSliderValue();
-            if(HP <= 0)
+            playerAnimator.Play(colorChange, 0, 0.0f);
+            if (HP <= 0)
             {
                 gameManager.GameOver();
             }
