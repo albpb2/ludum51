@@ -22,12 +22,8 @@ public class GameOverPlayer : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void Exit()
+    public void GoToMainMenu()
     {
-    #if UNITY_EDITOR
-        EditorApplication.ExitPlaymode();
-    #elif !UNITY_WEBGL && !UNITY_WEBPLAYER
-            Application.Quit(); // original code to quit Unity player
-    #endif
+        SceneManager.LoadScene(SceneNames.MainMenu);
     }
 }

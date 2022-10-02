@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,6 +8,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] Canvas gameOverCanvas;
 
     private ComputerController[] computerControllers;
+
+    public static void Exit()
+    {
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#elif !UNITY_WEBGL && !UNITY_WEBPLAYER
+            Application.Quit(); // original code to quit Unity player
+#endif
+    }
 
     // Start is called before the first frame update
     void Start()
