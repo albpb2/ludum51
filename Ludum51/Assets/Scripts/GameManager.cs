@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         {
             for (int i = 0; i < computerControllers.Length; i++)
             {
-                if (computerControllers[i].isHacked)
+                if (computerControllers[i].IsHacked)
                 {
                     hackComputerCounter++;
                 }
