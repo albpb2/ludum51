@@ -589,6 +589,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1268829171563505414, guid: b5f9f90b86c4d8d4b8213d4ace525ac8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1268829171563505415, guid: b5f9f90b86c4d8d4b8213d4ace525ac8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -601,6 +605,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 91a13add4e41d6544ad236326a9d9b77, type: 2}
+    - target: {fileID: 1268829172038159909, guid: b5f9f90b86c4d8d4b8213d4ace525ac8, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268829172685214527, guid: b5f9f90b86c4d8d4b8213d4ace525ac8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5f9f90b86c4d8d4b8213d4ace525ac8, type: 3}
 --- !u!4 &296519805
@@ -7430,6 +7442,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 610352779, guid: ed10b98d02ddaa34fa12c29896f70008, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 827374478, guid: ed10b98d02ddaa34fa12c29896f70008, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7438,6 +7454,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 942160750, guid: ed10b98d02ddaa34fa12c29896f70008, type: 3}
+      propertyPath: m_fontSize
+      value: 42.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 942160750, guid: ed10b98d02ddaa34fa12c29896f70008, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 838766d80aa6b400e8bad12cd50ab878, type: 2}
+    - target: {fileID: 942160750, guid: ed10b98d02ddaa34fa12c29896f70008, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4553078682913760665, guid: 838766d80aa6b400e8bad12cd50ab878, type: 2}
     - target: {fileID: 2838025366168801825, guid: ed10b98d02ddaa34fa12c29896f70008, type: 3}
       propertyPath: m_Name
       value: Agent
