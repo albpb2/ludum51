@@ -7,7 +7,9 @@ using UnityEngine;
 public class ComputerController : MonoBehaviour
 {
     private GameManager gameManager;
+
     public TextMeshProUGUI alarmText;
+    public bool isHacked;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,7 @@ public class ComputerController : MonoBehaviour
             if (!gameManager.IsKeyPressed)
             {
                 Debug.Log("No has pulsado la alarma a tiempo");
+                gameManager.GameOver();
             }
         }
     }
@@ -39,6 +42,8 @@ public class ComputerController : MonoBehaviour
     {
         alarmText.transform.gameObject.SetActive(false);
         gameManager.IsKeyPressed = true;
+        isHacked = true;
+        gameManager.VictoryCheck();
         Debug.Log("Tecla E Pulsada");
     }
 }

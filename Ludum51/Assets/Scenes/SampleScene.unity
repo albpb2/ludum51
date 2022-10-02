@@ -3066,6 +3066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alarmText: {fileID: 756394938}
+  isHacked: 0
 --- !u!4 &1327271431
 Transform:
   m_ObjectHideFlags: 0
@@ -4686,6 +4687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d15fd50362d95bc41883eb407d38fccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverCanvas: {fileID: 2120464743}
 --- !u!4 &2012957648
 Transform:
   m_ObjectHideFlags: 0

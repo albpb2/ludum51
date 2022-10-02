@@ -12,8 +12,8 @@ public class NavMeshAgentController : MonoBehaviour
     [SerializeField] float m_Speed = 5f;
     [SerializeField] float maxComputerSearchDistance = 1.5f;
     [SerializeField] float radius = 1.5f;
-    [SerializeField] Canvas gameOverCanvas;
-
+    
+    private GameManager gameManager;
     private Rigidbody rigidbody;
     private Plane plane = new Plane(Vector3.up, 0);
     private RaycastHit [] computerRayCastResults = new RaycastHit [20];
@@ -23,6 +23,7 @@ public class NavMeshAgentController : MonoBehaviour
     {
         fillHealthBar.FillSliderValue();
         ReceiveDamage(20);
+        gameManager = FindObjectOfType<GameManager>();
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -75,8 +76,7 @@ public class NavMeshAgentController : MonoBehaviour
             fillHealthBar.FillSliderValue();
             if(HP <= 0)
             {
-                gameOverCanvas.gameObject.SetActive(true);
-                Time.timeScale = 0f;
+                gameManager.GameOver();
             }
             Debug.Log("ouch, it hurts" + HP);
         }
