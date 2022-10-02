@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 84532559976395383}
-  - component: {fileID: 84532559976395384}
   - component: {fileID: 84532559976395385}
   - component: {fileID: 84532559976395382}
+  - component: {fileID: 430641123}
   m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
@@ -33,18 +33,6 @@ Transform:
   m_Father: {fileID: 1268829171818171512}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &84532559976395384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 84532559976395380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a20fc805cb4aaa4fa4ce924fabc9614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!198 &84532559976395385
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4875,6 +4863,21 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &430641123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84532559976395380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b47a3c28baf03b4cab99568760e1428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletImpactSparksPrefab: {fileID: 4442978867726866951, guid: 677734dffee992e43b5417ccda95db63, type: 3}
+  _targetTag: Agent
+  _gunDamage: 10
 --- !u!1 &84532560243110398
 GameObject:
   m_ObjectHideFlags: 0
@@ -4919,7 +4922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467d3ffd02d3aef4a9cf1cef871275b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyGun: {fileID: 84532559976395384}
+  _enemyGun: {fileID: 430641123}
 --- !u!135 &84532560243110368
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4942,6 +4945,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1268829171192560490}
+  - component: {fileID: 55491718}
   m_Layer: 6
   m_Name: EnemyPrefab
   m_TagString: Enemy
@@ -4965,6 +4969,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &55491718
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268829171192560491}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 30ba68d10a7d9e242806d938b3e1cf36, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1268829171469003022
 GameObject:
   m_ObjectHideFlags: 0
@@ -5090,6 +5113,7 @@ GameObject:
   - component: {fileID: 1268829171818171519}
   - component: {fileID: 1268829171818171516}
   - component: {fileID: 1268829171818171517}
+  - component: {fileID: 1859868499}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -5211,6 +5235,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillEnemyHealthBar: {fileID: 1268829172038159914}
+--- !u!114 &1859868499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268829171818171490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40acc56fe11d0b0439b4ba89efd2135a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1268829172038159912
 GameObject:
   m_ObjectHideFlags: 0
