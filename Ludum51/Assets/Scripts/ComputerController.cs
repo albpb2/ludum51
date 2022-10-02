@@ -9,14 +9,17 @@ public class ComputerController : MonoBehaviour
     public bool isHacked;
 
     private ComputerSystem _computerSystem;
+    private TimerController _timerController;
 
     // Start is called before the first frame update
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
         _computerSystem = FindObjectOfType<ComputerSystem>();
+        _timerController = FindObjectOfType<TimerController>();
         _computerSystem.OnKeyPressed += DisableAlarmText;
         _computerSystem.OnCountdownRestarted += EnableAlarmText;
+        
     }
 
     private void OnEnable()
@@ -36,6 +39,10 @@ public class ComputerController : MonoBehaviour
 
     public void PressKey()
     {
+        if (_timerController.TimeLeft > 3)
+        {
+            return;
+        }
         _computerSystem.PressKey();
         isHacked = true;
         gameObject.GetComponent<MeshRenderer>().material.color = Color.green;

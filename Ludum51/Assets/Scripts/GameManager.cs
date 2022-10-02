@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject pausePanel;
 
     private ComputerController[] computerControllers;
+    private TimerController _timerController;
     public bool IsPaused { get; set; }
 
     public static void Exit()
@@ -25,6 +27,21 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         computerControllers = FindObjectsOfType<ComputerController>();
+        _timerController = FindObjectOfType<TimerController>();
+        _timerController.OnTimerFinish += GameOver;
+    }
+
+    private void OnEnable()
+    {
+        if (_timerController != null)
+        {
+            _timerController.OnTimerFinish += GameOver;
+        }
+    }
+
+    private void OnDisable()
+    {
+        _timerController.OnTimerFinish -= GameOver;
     }
 
     public void VictoryCheck()
