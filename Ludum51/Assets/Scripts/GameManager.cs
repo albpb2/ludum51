@@ -6,8 +6,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Canvas gameOverCanvas;
+    [SerializeField] Canvas pauseMenuCanvas;
 
     private ComputerController[] computerControllers;
+    public bool IsPaused { get; set; }
 
     public static void Exit()
     {
@@ -47,6 +49,29 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("None Computer recognized/detected");
+        }
+        
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            ToggleMenu();
+        }
+    }
+
+    public void ToggleMenu()
+    {
+        IsPaused = !IsPaused;
+        if (!IsPaused)
+        {
+            Time.timeScale = 1;
+            pauseMenuCanvas.gameObject.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 0;
+            pauseMenuCanvas.gameObject.SetActive(true);
         }
         
     }

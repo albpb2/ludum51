@@ -5,17 +5,19 @@ using UnityEngine;
 public class PlayerGun : MonoBehaviour
 {
     private ParticleSystem _particleSystem;
+    private GameManager _gameManager;
 
     private List<ParticleCollisionEvent> _collisionEvents = new List<ParticleCollisionEvent>();
 
     private void Awake()
     {
         _particleSystem = GetComponent<ParticleSystem>();
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !_gameManager.IsPaused)
         {
             _particleSystem.Play();
         }
@@ -27,7 +29,7 @@ public class PlayerGun : MonoBehaviour
         {
             Debug.Log("Player hit");
             var playerHealth = other.GetComponent<NavMeshEnemyController>();
-            const int gunDamage = 50;
+            const int gunDamage = 10;
             playerHealth.ReceiveDamage(gunDamage);
         }
     }
