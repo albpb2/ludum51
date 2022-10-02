@@ -35,22 +35,22 @@ public class NavMeshAgentController : MonoBehaviour
         Vector3 playerInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         rigidbody.MovePosition(transform.position + playerInput * Time.deltaTime * m_Speed);
 
-        float distance;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (plane.Raycast(ray, out distance))
-        {
-            var mousePositionInWorld = ray.GetPoint(distance);
-            mousePositionInWorld = new Vector3(mousePositionInWorld.x, transform.position.y, mousePositionInWorld.z);
-            var targetDir = mousePositionInWorld - transform.position;
-            var forward = transform.forward;
-            var localTarget = transform.InverseTransformPoint(mousePositionInWorld);
+        //float distance;
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //if (plane.Raycast(ray, out distance))
+        //{
+        //    var mousePositionInWorld = ray.GetPoint(distance);
+        //    mousePositionInWorld = new Vector3(mousePositionInWorld.x, transform.position.y, mousePositionInWorld.z);
+        //    var targetDir = mousePositionInWorld - transform.position;
+        //    var forward = transform.forward;
+        //    var localTarget = transform.InverseTransformPoint(mousePositionInWorld);
 
-            var angle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg;
+        //    var angle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg;
 
-            var eulerAngleVelocity = new Vector3(0, angle, 0);
-            var deltaRotation = Quaternion.Euler(eulerAngleVelocity);
-            rigidbody.MoveRotation(rigidbody.rotation * deltaRotation);
-        }
+        //    var eulerAngleVelocity = new Vector3(0, angle, 0);
+        //    var deltaRotation = Quaternion.Euler(eulerAngleVelocity);
+        //    rigidbody.MoveRotation(rigidbody.rotation * deltaRotation);
+        //}
     }
 
     private void Update()

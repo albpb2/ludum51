@@ -6,6 +6,7 @@ public class PlayerGun : MonoBehaviour
 {
     private ParticleSystem _particleSystem;
     private GameManager _gameManager;
+    private Plane plane = new Plane(Vector3.up, 0);
 
     private List<ParticleCollisionEvent> _collisionEvents = new List<ParticleCollisionEvent>();
 
@@ -17,6 +18,16 @@ public class PlayerGun : MonoBehaviour
 
     private void Update()
     {
+        //float distance;
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //if (plane.Raycast(ray, out distance))
+        //{
+        //    var mousePositionInWorld = ray.GetPoint(distance);
+        //    mousePositionInWorld = new Vector3(mousePositionInWorld.x, transform.position.y, mousePositionInWorld.z);
+        //    transform.LookAt(mousePositionInWorld);
+        //}
+
+
         if (Input.GetKeyDown(KeyCode.Mouse0) && !_gameManager.IsPaused)
         {
             _particleSystem.Play();
