@@ -1,44 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEngine.UI;
 using UnityEngine;
 
 public class ComputerController : MonoBehaviour
 {
-    private GameManager gameManager;
     public TextMeshProUGUI alarmText;
+
+    private ComputerSystem _computerSystem;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
-        StartCoroutine("ManageAlarm");
+        _computerSystem = FindObjectOfType<ComputerSystem>();
+        _computerSystem.OnKeyPressed += DisableAlarmText;
+        _computerSystem.OnCountdownRestarted += EnableAlarmText;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        _computerSystem.OnKeyPressed -= DisableAlarmText;
+        _computerSystem.OnCountdownRestarted -= EnableAlarmText;
     }
-    IEnumerator ManageAlarm()
-    {
-        while (true)
-        {
-            gameManager.IsKeyPressed = false;
-            yield return new WaitForSeconds(10);
-            alarmText.transform.gameObject.SetActive(true);
 
-            if (!gameManager.IsKeyPressed)
-            {
-                Debug.Log("No has pulsado la alarma a tiempo");
-            }
-        }
-    }
     public void PressKey()
     {
+        _computerSystem.PressKey();
+    }
+
+    private void EnableAlarmText()
+    {
+        alarmText.transform.gameObject.SetActive(true);
+    }
+
+    private void DisableAlarmText()
+    {
         alarmText.transform.gameObject.SetActive(false);
-        gameManager.IsKeyPressed = true;
-        Debug.Log("Tecla E Pulsada");
     }
 }
