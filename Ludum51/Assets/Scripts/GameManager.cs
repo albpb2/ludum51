@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] Canvas gameOverCanvas;
-    [SerializeField] Canvas pauseMenuCanvas;
+    [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject pausePanel;
 
     private ComputerController[] computerControllers;
     public bool IsPaused { get; set; }
@@ -66,19 +66,19 @@ public class GameManager : MonoBehaviour
         if (!IsPaused)
         {
             Time.timeScale = 1;
-            pauseMenuCanvas.gameObject.SetActive(false);
+            pausePanel.SetActive(false);
         }
         else
         {
             Time.timeScale = 0;
-            pauseMenuCanvas.gameObject.SetActive(true);
+            pausePanel.SetActive(true);
         }
         
     }
 
     public void GameOver()
     {
-        gameOverCanvas.gameObject.SetActive(true);
+        gameOverPanel.SetActive(true);
         Time.timeScale = 0f;
     }
 }
