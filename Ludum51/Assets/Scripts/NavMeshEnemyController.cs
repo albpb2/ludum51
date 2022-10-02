@@ -10,7 +10,7 @@ public class NavMeshEnemyController : MonoBehaviour
 
     [SerializeField] FillEnemyHealthBar fillEnemyHealthBar;
     private Animator enemyAnimator;
-    private string colorChange = "ColorChangeByHit";
+    private string colorChange = "EnemyColorChangeByHit";
     private void Start()
     {
 
