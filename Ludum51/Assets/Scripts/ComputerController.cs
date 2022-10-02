@@ -38,6 +38,7 @@ public class ComputerController : MonoBehaviour
     {
         _computerSystem.PressKey();
         isHacked = true;
+        gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
         _gameManager.VictoryCheck();
     }
 
