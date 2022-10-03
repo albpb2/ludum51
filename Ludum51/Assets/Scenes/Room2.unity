@@ -5425,7 +5425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1652040115911577896, guid: 89693c1c3c8471040a9113857b2b1259, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 55.8
+      value: 54.18
       objectReference: {fileID: 0}
     - target: {fileID: 1652040115911577896, guid: 89693c1c3c8471040a9113857b2b1259, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5466,6 +5466,14 @@ PrefabInstance:
     - target: {fileID: 6239598107574864209, guid: 89693c1c3c8471040a9113857b2b1259, type: 3}
       propertyPath: m_Name
       value: ComputerSprite (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7920851433065967876, guid: 89693c1c3c8471040a9113857b2b1259, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7920851433065967876, guid: 89693c1c3c8471040a9113857b2b1259, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1907892477
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89693c1c3c8471040a9113857b2b1259, type: 3}
