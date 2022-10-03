@@ -6,14 +6,35 @@ public class EnemySpriteController : MonoBehaviour
     [SerializeField] private NavMeshAgent _enemyNavMeshAgent;
 
     private SpriteRenderer _spriteRenderer;
+    private NavMeshEnemyController _navMeshEnemyController;
+    private Transform _playerTransform;
+
+    private RaycastHit _raycastHit;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void Start()
+    {
+        _navMeshEnemyController = _enemyNavMeshAgent.GetComponent<NavMeshEnemyController>();
+        _playerTransform = FindObjectOfType<NavMeshAgentController>().transform;
+    }
+
     private void Update()
     {
-        _spriteRenderer.flipX = _enemyNavMeshAgent.velocity.x < 0;
+        if (_navMeshEnemyController.IsPlayerInArea)
+        {
+            if (Physics.Raycast(transform.position, _playerTransform.position - transform.position, out _raycastHit, 30)
+                && _raycastHit.transform.CompareTag(Tags.Agent))
+            {
+                _spriteRenderer.flipX = _playerTransform.position.x < transform.position.x;
+            }
+        }
+        else
+        {
+            _spriteRenderer.flipX = _enemyNavMeshAgent.velocity.x < 0;
+        }
     }
 }
