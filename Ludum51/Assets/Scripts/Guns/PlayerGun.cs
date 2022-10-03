@@ -3,10 +3,16 @@ using UnityEngine;
 public class PlayerGun : Gun
 {
     private GameManager _gameManager;
+    private Animator _animator;
 
     protected override void Awake()
     {
         base.Awake();
+        _animator = GetComponentInParent<Animator>();
+    }
+
+    private void Start()
+    {
         _gameManager = FindObjectOfType<GameManager>();
     }
 
@@ -15,6 +21,7 @@ public class PlayerGun : Gun
         if (Input.GetKeyDown(KeyCode.Mouse0) && !_gameManager.IsPaused)
         {
             ParticleSystem.Play();
+            _animator.SetTrigger("Shoot");
         }
     }
 }
