@@ -25,7 +25,6 @@ public class DoorController : MonoBehaviour
         else
         {
             _doorAnimator.SetTrigger("Error");
-            //play red door animation
         }
     }
     IEnumerator ChangeSceneWithDelay()

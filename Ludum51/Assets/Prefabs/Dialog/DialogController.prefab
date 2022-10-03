@@ -141,17 +141,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lines:
-  - CharacterId: CharacterDialog_Player
-    TextLine: holiwi
-  - CharacterId: CharacterDialog_Player
-    TextLine: Que tal andamios
-  - CharacterId: DialogCharacter_Bauss
-    TextLine: pueeeeeeeh bien
-  - CharacterId: DialogCharacter_Bauss
-    TextLine: "La Cuesti\xF3n, \"The question\""
-  - CharacterId: DialogCharacter_Bauss
-    TextLine: Tienes que hackear un pc y salir de ahi cagando hostias
-  - CharacterId: DialogCharacter_Bauss
-    TextLine: En concreto tendras 10 segundos para encontrar el terminal y otros
-      10 para lograr escapar
+  - CharacterId: CharacterDialog_Tech
+    TextLine: "Hey Fury. It\u2019s TECH here. Good to know you are in charge. "
+  - CharacterId: CharacterDialog_Tech
+    TextLine: "I\u2019ve made my research, the bunker has a 10 sec security system,
+      that will be activated the moment you set a foot inside."
+  - CharacterId: CharacterDialog_Tech
+    TextLine: 'This means: every 10 secs you will have to press the letter E in the
+      computers you find in your path to avoid the system.'
+  - CharacterId: CharacterDialog_Tech
+    TextLine: But be careful, you have to press E when there are, at least, 3 seconds
+      left to end the countdown.
+  - CharacterId: CharacterDialog_Tech
+    TextLine: Also you will need to do it in every computer of the level to open
+      the doors and continue your raid.
+  - CharacterId: CharacterDialog_Tech
+    TextLine: Sounds easy for someone like you. Hahahaha.
   _textAudio: {fileID: 0}

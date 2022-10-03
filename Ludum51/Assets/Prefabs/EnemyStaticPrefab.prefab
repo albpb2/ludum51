@@ -4992,7 +4992,7 @@ MonoBehaviour:
   _bulletImpactSparksPrefab: {fileID: 4442978867726866951, guid: 677734dffee992e43b5417ccda95db63, type: 3}
   _targetTag: Agent
   _gunDamage: 10
-  _animator: {fileID: 0}
+  _animator: {fileID: 1770242054613097156}
 --- !u!1 &84532560243110398
 GameObject:
   m_ObjectHideFlags: 0

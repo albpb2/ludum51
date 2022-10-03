@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 7892711229765536929}
   - component: {fileID: 7892711229765536930}
   - component: {fileID: 7892711229765536928}
+  - component: {fileID: 198505394}
+  - component: {fileID: 198505391}
   m_Layer: 0
   m_Name: DoorLevel
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7892711229765536931}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -23.08, y: 1, z: 2.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2133399, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -69,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -18654879
+  m_SortingLayer: -1
   m_SortingOrder: 2
   m_Sprite: {fileID: 4696193444997937107, guid: 4be8a68fd9b9e44b0b4833326721d75e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,3 +104,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &198505394
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892711229765536931}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.599999, y: 9.600002, z: 0.20000005}
+  m_Center: {x: 0, y: 4.800001, z: 0}
+--- !u!114 &198505391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892711229765536931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376cb5f74d7739c4da6121ab75f3c43d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _doorAnimator: {fileID: 7892711229765536928}
