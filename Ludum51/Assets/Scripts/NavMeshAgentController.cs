@@ -10,20 +10,22 @@ public class NavMeshAgentController : MonoBehaviour
     [SerializeField] float maxComputerSearchDistance = 1.5f;
     [SerializeField] float radius = 1.5f;
 
-    private Animator _playerAnimator;
     private DoorController _doorController;
-    private string colorChange = "PlayerColorChangeByHit";
     private GameManager _gameManager;
     private Rigidbody _rigidbody;
     private DamageHandler _damageHandler;
     private CinemachineCameraShake _cinemachineCameraShake;
+    private PlayerSpriteController _playerSpriteController;
     private RaycastHit [] computerRayCastResults = new RaycastHit [20];
+    
+
+    public float Speed => m_Speed;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _playerAnimator = GetComponent<Animator>();
         _damageHandler = GetComponent<DamageHandler>();
+        _playerSpriteController = GetComponentInChildren<PlayerSpriteController>();
     }
 
     // Start is called before the first frame update
@@ -83,7 +85,6 @@ public class NavMeshAgentController : MonoBehaviour
             HP -= damage;
             fillHealthBar.gameObject.SetActive(true);
             fillHealthBar.FillSliderValue();
-            _playerAnimator.Play(colorChange, 0, 0.0f);
             if (HP <= 0)
             {
                 _gameManager.GameOver();
