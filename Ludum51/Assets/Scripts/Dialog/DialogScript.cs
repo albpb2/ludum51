@@ -47,9 +47,7 @@ public class DialogScript : MonoBehaviour
         if (_currentLineIndex < _lines.Length)
         {
 
-            _audioSource.pitch = 1 + Random.Range(-0.1f, 0.1f);
-            _audioSource.PlayOneShot(_textAudio, 0.3f);
-
+            AudioManagerController.instance.PlaySFX(13);
             //GetCurrentLineCharacter().DisableShadow();
             _textBox.text = FormatLine(_lines[_currentLineIndex]);
         }

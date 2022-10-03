@@ -87,6 +87,7 @@ public class NavMeshAgentController : MonoBehaviour
             fillHealthBar.FillSliderValue();
             if (HP <= 0)
             {
+                AudioManagerController.instance.PlaySFX(12);
                 _gameManager.GameOver();
             }
             else
