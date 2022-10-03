@@ -7,6 +7,7 @@ public class EnemyPatrolBehaviour : MonoBehaviour
 {
     [SerializeField] GameObject _routeBegin;
     [SerializeField] GameObject _routeEnd;
+    [SerializeField] Animator _animator;
 
     private NavMeshAgent _enemyAgent;
     private NavMeshEnemyController _enemyController;
@@ -20,6 +21,7 @@ public class EnemyPatrolBehaviour : MonoBehaviour
         if(_routeBegin != null && _routeEnd != null && !_enemyController.IsPlayerInArea)
         {
             _enemyAgent.destination = _routeBegin.transform.position;
+            _animator.SetBool("IsRunning", true);
             _isAtBegin = true;
         }
     }
@@ -36,11 +38,13 @@ public class EnemyPatrolBehaviour : MonoBehaviour
     {
         if (_isAtBegin && !_enemyController.IsPlayerInArea)
         {
+            _animator.SetBool("IsRunning", false);
             yield return new WaitForSeconds(1f);
             _enemyAgent.destination = _routeEnd.transform.position;
         }
         else if (!_isAtBegin && !_enemyController.IsPlayerInArea)
         {
+            _animator.SetBool("IsRunning", false);
             yield return new WaitForSeconds(1f);
             _enemyAgent.destination = _routeBegin.transform.position;
         }

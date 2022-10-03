@@ -4279,7 +4279,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1745597872}
-  - {fileID: 1948693565}
   - {fileID: 544005578}
   - {fileID: 1710870947}
   m_Father: {fileID: 528304944}
@@ -5828,11 +5827,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &1948693565 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-  m_PrefabInstance: {fileID: 3878915331968241201}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1959906347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6434,6 +6428,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1474820122}
     m_Modifications:
+    - target: {fileID: 1788294880643045321, guid: 27a3c3bf79aa84d4684233eacc97f3ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788294881336919767, guid: 27a3c3bf79aa84d4684233eacc97f3ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1788294881435778768, guid: 27a3c3bf79aa84d4684233eacc97f3ef, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6444,7 +6446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1788294881435778768, guid: 27a3c3bf79aa84d4684233eacc97f3ef, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1788294881435778768, guid: 27a3c3bf79aa84d4684233eacc97f3ef, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6518,9 +6520,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1788294881435778769, guid: 27a3c3bf79aa84d4684233eacc97f3ef, type: 3}
+      propertyPath: _characterId
+      value: DialogCharacter_Tech
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788294881435778769, guid: 27a3c3bf79aa84d4684233eacc97f3ef, type: 3}
+      propertyPath: _characterName
+      value: Tech
+      objectReference: {fileID: 0}
     - target: {fileID: 1788294881435778771, guid: 27a3c3bf79aa84d4684233eacc97f3ef, type: 3}
       propertyPath: m_Name
-      value: CharacterDialog_Bauss
+      value: CharacterDialog_Tech
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a3c3bf79aa84d4684233eacc97f3ef, type: 3}
@@ -6618,103 +6628,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4273530613738860588, guid: ed10b98d02ddaa34fa12c29896f70008, type: 3}
   m_PrefabInstance: {fileID: 2030015656722790907}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &3878915331968241201
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1474820122}
-    m_Modifications:
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 326.99988
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 140
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -1159.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -96.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641612, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878915330695641613, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
-      propertyPath: m_Name
-      value: CharacterDialog_Player
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d833af7c59cf85d488a420e7d010affc, type: 3}
 --- !u!1001 &6768313629888791910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6787,6 +6700,57 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[0].TextLine
+      value: Que tal andamios
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[1].TextLine
+      value: pueeeeeeeh bien
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[2].TextLine
+      value: En concreto tendras 10 segundos para encontrar el terminal y otros 10
+        para lograr escapar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[3].TextLine
+      value: En concreto tendras 10 segundos para encontrar el terminal y otros 10
+        para lograr escapar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[4].TextLine
+      value: En concreto tendras 10 segundos para encontrar el terminal y otros 10
+        para lograr escapar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[0].CharacterId
+      value: CharacterDialog_Tech
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[1].CharacterId
+      value: DialogCharacter_Bauss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[2].CharacterId
+      value: DialogCharacter_Tech
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[3].CharacterId
+      value: DialogCharacter_Tech
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[4].CharacterId
+      value: DialogCharacter_Tech
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[5].CharacterId
+      value: DialogCharacter_Tech
+      objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872009, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: m_Name
       value: DialogController
@@ -6858,7 +6822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9080706443528547237, guid: 0376227842412604bab66364ccdc9a36, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9080706443528547237, guid: 0376227842412604bab66364ccdc9a36, type: 3}
       propertyPath: m_AnchorMax.x
