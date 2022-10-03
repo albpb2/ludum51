@@ -28,14 +28,14 @@ public class FillHealthBar : MonoBehaviour
 
         if(slider.value <= slider.maxValue * 0.2f)
         {
-            fillImage.color = Color.red;
-        }else if (slider.value <= slider.maxValue * 0.5f)
+            fillImage.color = new Color(0.5849056f, 0.234514f, 0.234514f); //Red
+        }else if (slider.value <= slider.maxValue * 0.4f)
         {
-            fillImage.color = Color.yellow;
+            fillImage.color = new Color(0.5849056f, 0.234514f, 0.234514f); //Red
         }
         else
         {
-            fillImage.color = Color.green;
+            fillImage.color = new Color(0.8196079f, 0.4588236f, 0.2745098f); //Orange
         }
     }
 
