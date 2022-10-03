@@ -2,9 +2,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 
-public class DialogScript : MonoBehaviour
+public class IntroDialogScript : MonoBehaviour
 {
     [SerializeField] private DialogLine[] _lines;
     [SerializeField] private AudioClip _textAudio;
@@ -53,7 +54,6 @@ public class DialogScript : MonoBehaviour
             GetCurrentLineCharacter().DisableShadow();
             _textBox.text = FormatLine(_lines[_currentLineIndex]);
         }
-
         return true;
     }
 
@@ -75,15 +75,7 @@ public class DialogScript : MonoBehaviour
 
     private string FormatLine(DialogLine dialogLine)
     {
-        if (GetCurrentLineCharacter().CharacterName == "")
-        {
             return $"<b>{GetCurrentLineCharacter().CharacterName}</b> {dialogLine.TextLine}";
-        }
-        else
-        {
-            return $"<b>{GetCurrentLineCharacter().CharacterName}:</b> {dialogLine.TextLine}";
-        }
-        
     }
 }
 

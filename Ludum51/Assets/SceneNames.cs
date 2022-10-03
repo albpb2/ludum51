@@ -4,4 +4,5 @@
     public const string OptionsMenu = nameof(OptionsMenu);
     public const string Game = "SampleScene";
     public const string Credits = nameof(Credits);
+    public const string Intro = nameof(Intro);
 }
