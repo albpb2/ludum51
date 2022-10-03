@@ -31,7 +31,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void SetNormalMode()
     {
-        _normalModeButtonText.color = Color.green;
+        _normalModeButtonText.color = new Color(0.8196079f, 0.4588236f, 0.2745098f);
         _hardcoreModeButtonText.color = Color.black;
         _gameSettings.HardcoreMode = false;
     }
@@ -39,7 +39,7 @@ public class OptionsMenu : MonoBehaviour
     public void SetHardcorelMode()
     {
         _normalModeButtonText.color = Color.black;
-        _hardcoreModeButtonText.color = Color.green;
+        _hardcoreModeButtonText.color = new Color(0.8196079f, 0.4588236f, 0.2745098f);
         _gameSettings.HardcoreMode = true;
     }
 }

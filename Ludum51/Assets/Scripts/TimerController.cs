@@ -25,11 +25,11 @@ public class TimerController : MonoBehaviour
         TimeLeft -= Time.deltaTime;
         if (TimeLeft < 9)
         {
-            _timerText.text = "00:0" + (int)(TimeLeft + 1);
+            _timerText.text = "" + (int)(TimeLeft + 1);
         }
         else
         {
-            _timerText.text = "00:" + (int)(TimeLeft + 1);
+            _timerText.text = "" + (int)(TimeLeft + 1);
         }
 
         if (TimeLeft <= 0.0f)
