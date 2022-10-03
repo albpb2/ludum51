@@ -11,6 +11,7 @@ public class NavMeshAgentController : MonoBehaviour
     [SerializeField] float radius = 1.5f;
 
     private Animator _playerAnimator;
+    private DoorController _doorController;
     private string colorChange = "PlayerColorChangeByHit";
     private GameManager _gameManager;
     private Rigidbody _rigidbody;
@@ -31,6 +32,7 @@ public class NavMeshAgentController : MonoBehaviour
         fillHealthBar.FillSliderValue();
         _gameManager = FindObjectOfType<GameManager>();
         _cinemachineCameraShake = FindObjectOfType<CinemachineCameraShake>();
+        _doorController = FindObjectOfType<DoorController>();
 
         _damageHandler.OnDamageTaken += ReceiveDamage;
     }
@@ -53,6 +55,9 @@ public class NavMeshAgentController : MonoBehaviour
                 {
                     var computerController = computerRayCastResults[i].transform.GetComponent<ComputerController>();
                     computerController.PressKey();
+                }else if (computerRayCastResults[i].transform.CompareTag("Door"))
+                {
+                    _doorController.PressKey();
                 }
             }
         }

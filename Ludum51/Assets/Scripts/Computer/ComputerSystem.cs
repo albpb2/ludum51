@@ -31,14 +31,6 @@ public class ComputerSystem : MonoBehaviour
         {
             IsKeyPressed = false;
             yield return new WaitForSeconds(10);
-
-            //if (!IsKeyPressed)
-            //{
-            //    Debug.Log("No has pulsado la alarma a tiempo"); 
-            //    _gameManager.GameOver();
-            //    yield break;
-            //}
-
             OnCountdownRestarted?.Invoke();
         }
     }

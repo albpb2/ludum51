@@ -8,6 +8,7 @@ TagManager:
   - Computer
   - Enemy
   - DialogLineTextBox
+  - Door
   layers:
   - Default
   - TransparentFX

@@ -34,10 +34,8 @@ public class EnemyPatrolBehaviour : MonoBehaviour
 
     IEnumerator ToggleDestination()
     {
-        Debug.Log("Entra");
         if (_isAtBegin && !_enemyController.IsPlayerInArea)
         {
-            Debug.Log("Deberia ir al end");
             yield return new WaitForSeconds(1f);
             _enemyAgent.destination = _routeEnd.transform.position;
         }

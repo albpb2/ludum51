@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     private ComputerController[] computerControllers;
     private TimerController _timerController;
+    private DoorController _doorController;
     public bool IsPaused { get; set; }
 
     public static void Exit()
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         computerControllers = FindObjectsOfType<ComputerController>();
         _timerController = FindObjectOfType<TimerController>();
+        _doorController = FindObjectOfType<DoorController>();
         _timerController.OnTimerFinish += GameOver;
     }
 
@@ -60,6 +62,7 @@ public class GameManager : MonoBehaviour
             if (hackComputerCounter == computerControllers.Length)
             {
                 //Victory
+                _doorController.UnlockDoor();
                 Debug.Log("All Computers have been Hacked Congrats");
             }
         }
@@ -94,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        //gameOverPanel.SetActive(true);
-        //Time.timeScale = 0f;
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
