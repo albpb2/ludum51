@@ -34,6 +34,7 @@ public class Gun : MonoBehaviour
         }
         else
         {
+            AudioManagerController.instance.PlaySFX(10);
             PlaySparksHitParticle(other);
         }
     }

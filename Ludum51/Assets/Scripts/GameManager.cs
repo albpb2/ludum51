@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
+        IsPaused = true;
         computerControllers = FindObjectsOfType<ComputerController>();
         _timerController = FindObjectOfType<TimerController>();
         _doorController = FindObjectOfType<DoorController>();

@@ -83,6 +83,7 @@ public class NavMeshEnemyController : MonoBehaviour
             _cinemachineCameraShake.Shake(5f, .1f);
             if (HP <= 0)
             {
+                AudioManagerController.instance.PlaySFX(14);
                 Destroy(transform.parent.gameObject);
             }
 
