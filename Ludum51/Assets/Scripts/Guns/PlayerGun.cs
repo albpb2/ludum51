@@ -21,6 +21,7 @@ public class PlayerGun : Gun
         if (Input.GetKeyDown(KeyCode.Mouse0) && !_gameManager.IsPaused)
         {
             ParticleSystem.Play();
+            AudioManagerController.instance.PlaySFXPitch(1);
             _animator.SetTrigger("Shoot");
         }
     }

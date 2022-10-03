@@ -6,10 +6,13 @@ public class SampleScene : MonoBehaviour
 {
     [SerializeField] DialogScript _dialogScript;
     [SerializeField] GameObject _dialogPanel;
+
+    private GameManager _gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _gameManager = FindObjectOfType<GameManager>();  
     }
 
     // Update is called once per frame
@@ -33,7 +36,7 @@ public class SampleScene : MonoBehaviour
 
         if (_dialogScript.IsFinished)
         {
-            Time.timeScale = 1f;
+            _gameManager.ToggleMenu();
             _dialogPanel.SetActive(false);
         }
     }
