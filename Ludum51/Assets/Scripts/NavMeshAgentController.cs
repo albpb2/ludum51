@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class NavMeshAgentController : MonoBehaviour
 {
@@ -13,44 +10,36 @@ public class NavMeshAgentController : MonoBehaviour
     [SerializeField] float maxComputerSearchDistance = 1.5f;
     [SerializeField] float radius = 1.5f;
 
-    private Animator playerAnimator;
+    private Animator _playerAnimator;
     private string colorChange = "PlayerColorChangeByHit";
-    private GameManager gameManager;
-    private Rigidbody rigidbody;
-    private Plane plane = new Plane(Vector3.up, 0);
+    private GameManager _gameManager;
+    private Rigidbody _rigidbody;
+    private DamageHandler _damageHandler;
+    private CinemachineCameraShake _cinemachineCameraShake;
     private RaycastHit [] computerRayCastResults = new RaycastHit [20];
+
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+        _playerAnimator = GetComponent<Animator>();
+        _damageHandler = GetComponent<DamageHandler>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         fillHealthBar.FillSliderValue();
-        gameManager = FindObjectOfType<GameManager>();
-        rigidbody = GetComponent<Rigidbody>();
-        playerAnimator = GetComponent<Animator>();
+        _gameManager = FindObjectOfType<GameManager>();
+        _cinemachineCameraShake = FindObjectOfType<CinemachineCameraShake>();
+
+        _damageHandler.OnDamageTaken += ReceiveDamage;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         Vector3 playerInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        rigidbody.MovePosition(transform.position + playerInput * Time.deltaTime * m_Speed);
-
-        float distance;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (plane.Raycast(ray, out distance))
-        {
-            var mousePositionInWorld = ray.GetPoint(distance);
-            mousePositionInWorld = new Vector3(mousePositionInWorld.x, transform.position.y, mousePositionInWorld.z);
-            var targetDir = mousePositionInWorld - transform.position;
-            var forward = transform.forward;
-            var localTarget = transform.InverseTransformPoint(mousePositionInWorld);
-
-            var angle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg;
-
-            var eulerAngleVelocity = new Vector3(0, angle, 0);
-            var deltaRotation = Quaternion.Euler(eulerAngleVelocity);
-            rigidbody.MoveRotation(rigidbody.rotation * deltaRotation);
-        }
+        _rigidbody.MovePosition(transform.position + playerInput * Time.deltaTime * m_Speed);
     }
 
     private void Update()
@@ -69,6 +58,19 @@ public class NavMeshAgentController : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        if (_damageHandler != null)
+        {
+            _damageHandler.OnDamageTaken += ReceiveDamage;
+        }
+    }
+
+    private void OnDisable()
+    {
+        _damageHandler.OnDamageTaken -= ReceiveDamage;
+    }
+
     public void ReceiveDamage(int damage)
     {
         if (damage > 0)
@@ -76,10 +78,14 @@ public class NavMeshAgentController : MonoBehaviour
             HP -= damage;
             fillHealthBar.gameObject.SetActive(true);
             fillHealthBar.FillSliderValue();
-            playerAnimator.Play(colorChange, 0, 0.0f);
+            _playerAnimator.Play(colorChange, 0, 0.0f);
             if (HP <= 0)
             {
-                gameManager.GameOver();
+                _gameManager.GameOver();
+            }
+            else
+            {
+                _cinemachineCameraShake.Shake(5f, .1f);
             }
             Debug.Log("ouch, it hurts" + HP);
         }

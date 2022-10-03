@@ -13,13 +13,15 @@ public class ComputerSystem : MonoBehaviour
     public event KeyPessedEvent OnKeyPressed;
     public event KeyPessedEvent OnCountdownRestarted;
 
+    private TimerController _timerController;
+
     public bool IsKeyPressed { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
-
+        _timerController = FindObjectOfType<TimerController>();
         StartCoroutine("ManageAlarm");
     }
 
@@ -30,18 +32,20 @@ public class ComputerSystem : MonoBehaviour
             IsKeyPressed = false;
             yield return new WaitForSeconds(10);
 
-            if (!IsKeyPressed)
-            {
-                Debug.Log("No has pulsado la alarma a tiempo"); 
-                _gameManager.GameOver();
-                yield break;
-            }
+            //if (!IsKeyPressed)
+            //{
+            //    Debug.Log("No has pulsado la alarma a tiempo"); 
+            //    _gameManager.GameOver();
+            //    yield break;
+            //}
 
             OnCountdownRestarted?.Invoke();
         }
     }
+
     public void PressKey()
     {
+        _timerController.ResetTimer();
         IsKeyPressed = true;
         OnKeyPressed?.Invoke();
         Debug.Log("Tecla E Pulsada");

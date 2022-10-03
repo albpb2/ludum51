@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] Canvas gameOverCanvas;
-    [SerializeField] Canvas pauseMenuCanvas;
+    [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject pausePanel;
 
     private ComputerController[] computerControllers;
+    private TimerController _timerController;
     public bool IsPaused { get; set; }
 
     public static void Exit()
@@ -25,6 +27,21 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         computerControllers = FindObjectsOfType<ComputerController>();
+        _timerController = FindObjectOfType<TimerController>();
+        _timerController.OnTimerFinish += GameOver;
+    }
+
+    private void OnEnable()
+    {
+        if (_timerController != null)
+        {
+            _timerController.OnTimerFinish += GameOver;
+        }
+    }
+
+    private void OnDisable()
+    {
+        _timerController.OnTimerFinish -= GameOver;
     }
 
     public void VictoryCheck()
@@ -34,7 +51,7 @@ public class GameManager : MonoBehaviour
         {
             for (int i = 0; i < computerControllers.Length; i++)
             {
-                if (computerControllers[i].isHacked)
+                if (computerControllers[i].IsHacked)
                 {
                     hackComputerCounter++;
                 }
@@ -66,19 +83,18 @@ public class GameManager : MonoBehaviour
         if (!IsPaused)
         {
             Time.timeScale = 1;
-            pauseMenuCanvas.gameObject.SetActive(false);
+            pausePanel.SetActive(false);
         }
         else
         {
             Time.timeScale = 0;
-            pauseMenuCanvas.gameObject.SetActive(true);
+            pausePanel.SetActive(true);
         }
-        
     }
 
     public void GameOver()
     {
-        gameOverCanvas.gameObject.SetActive(true);
-        Time.timeScale = 0f;
+        //gameOverPanel.SetActive(true);
+        //Time.timeScale = 0f;
     }
 }

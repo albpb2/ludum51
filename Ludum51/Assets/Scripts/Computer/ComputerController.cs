@@ -3,20 +3,25 @@ using UnityEngine;
 
 public class ComputerController : MonoBehaviour
 {
-    private GameManager _gameManager;
-
     public TextMeshProUGUI alarmText;
-    public bool isHacked;
 
+    private GameManager _gameManager;
+    private GameSettings _gameSettings;
     private ComputerSystem _computerSystem;
+    private TimerController _timerController;
+
+    public bool IsHacked { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
         _computerSystem = FindObjectOfType<ComputerSystem>();
+        _timerController = FindObjectOfType<TimerController>();
+        _gameSettings = FindObjectOfType<GameSettings>();
         _computerSystem.OnKeyPressed += DisableAlarmText;
         _computerSystem.OnCountdownRestarted += EnableAlarmText;
+        
     }
 
     private void OnEnable()
@@ -36,8 +41,18 @@ public class ComputerController : MonoBehaviour
 
     public void PressKey()
     {
+        if (_timerController.TimeLeft > 3)
+        {
+            return;
+        }
+        if (IsHacked && _gameSettings.HardcoreMode)
+        {
+            return;
+        }
+
         _computerSystem.PressKey();
-        isHacked = true;
+        IsHacked = true;
+        gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
         _gameManager.VictoryCheck();
     }
 
