@@ -19,10 +19,12 @@ public class DoorController : MonoBehaviour
         if (_isUnlock)
         {
             _doorAnimator.SetTrigger("IsOpen");
+            AudioManagerController.instance.PlaySFX(4);
             StartCoroutine(ChangeSceneWithDelay());
         }
         else
         {
+            _doorAnimator.SetTrigger("Error");
             //play red door animation
         }
     }

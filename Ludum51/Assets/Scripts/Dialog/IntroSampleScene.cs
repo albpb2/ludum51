@@ -39,6 +39,7 @@ public class IntroSampleScene : MonoBehaviour
 
             Debug.Log("Es aqui?");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            AudioManagerController.instance.PlayGameplayTheme();
         }
     }
 }

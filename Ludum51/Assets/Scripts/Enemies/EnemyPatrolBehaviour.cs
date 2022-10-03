@@ -41,12 +41,14 @@ public class EnemyPatrolBehaviour : MonoBehaviour
             _animator.SetBool("IsRunning", false);
             yield return new WaitForSeconds(1f);
             _enemyAgent.destination = _routeEnd.transform.position;
+            _animator.SetBool("IsRunning", true);
         }
         else if (!_isAtBegin && !_enemyController.IsPlayerInArea)
         {
             _animator.SetBool("IsRunning", false);
             yield return new WaitForSeconds(1f);
             _enemyAgent.destination = _routeBegin.transform.position;
+            _animator.SetBool("IsRunning", true);
         }
         _isAtBegin = !_isAtBegin;
     }

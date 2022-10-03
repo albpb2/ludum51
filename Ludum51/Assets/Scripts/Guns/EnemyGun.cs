@@ -19,5 +19,6 @@ public class EnemyGun : Gun
         Debug.Log("Shooting");
         ParticleSystem.Play();
         _animator.SetTrigger("Shoot");
+        AudioManagerController.instance.PlaySFXPitch(6);
     }
 }

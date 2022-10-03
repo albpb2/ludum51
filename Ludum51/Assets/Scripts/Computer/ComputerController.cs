@@ -52,6 +52,7 @@ public class ComputerController : MonoBehaviour
 
         _computerSystem.PressKey();
         IsHacked = true;
+        AudioManagerController.instance.PlaySFX(3);
         gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
         _gameManager.VictoryCheck();
     }

@@ -3,9 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private void Start()
+    {
+        if (!AudioManagerController.instance.menuTheme.isPlaying)
+        {
+            AudioManagerController.instance.PlayMenuTheme();
+        } 
+    }
+
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneNames.Game);
+        SceneManager.LoadScene(SceneNames.Intro);
     }
 
     public void GoToOptionsMenu()
