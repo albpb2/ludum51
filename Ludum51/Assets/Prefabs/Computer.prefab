@@ -127,7 +127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alarmText: {fileID: 4423499150669771469}
-  isHacked: 0
 --- !u!1 &4423499149409177025
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,15 +294,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press "E"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 838766d80aa6b400e8bad12cd50ab878, type: 2}
+  m_sharedMaterial: {fileID: -4553078682913760665, guid: 838766d80aa6b400e8bad12cd50ab878, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4282807761
+  m_fontColor: {r: 0.8196079, g: 0.45882356, b: 0.27450982, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
