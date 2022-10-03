@@ -6,6 +6,7 @@ public class EnemySpriteController : MonoBehaviour
     [SerializeField] private NavMeshAgent _enemyNavMeshAgent;
 
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
     private NavMeshEnemyController _navMeshEnemyController;
     private Transform _playerTransform;
 
@@ -14,6 +15,7 @@ public class EnemySpriteController : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -36,5 +38,7 @@ public class EnemySpriteController : MonoBehaviour
         {
             _spriteRenderer.flipX = _enemyNavMeshAgent.velocity.x < 0;
         }
+
+        _animator.SetBool("IsRunning", _enemyNavMeshAgent.velocity.magnitude > .0001f);
     }
 }
