@@ -5968,6 +5968,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[0].TextLine
+      value: 'Well done, Fury. You made it to the second floor. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[1].TextLine
+      value: 'This floor has also 2 computers to be hacked.  '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[2].TextLine
+      value: 'Remember to hack both of them to open the door. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[3].TextLine
+      value: "And don\u2019t worry about the soldiers, you are free to kill those
+        jerks. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[4].TextLine
+      value: Sounds easy for someone like you. Hahahaha.
+      objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872009, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: m_Name
       value: DialogController
