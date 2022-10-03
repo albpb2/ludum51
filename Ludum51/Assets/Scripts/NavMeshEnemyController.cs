@@ -15,6 +15,7 @@ public class NavMeshEnemyController : MonoBehaviour
     private EnemyDetectionArea _enemyDetectionArea;
     private NavMeshAgent _agent;
     private EnemyPatrolBehaviour _enemyPatrolBehaviour;
+    private CinemachineCameraShake _cinemachineCameraShake;
 
     public bool IsPlayerInArea { get; private set; }
     public int HP { get; set; } = 100;
@@ -28,6 +29,7 @@ public class NavMeshEnemyController : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _enemyDetectionArea = GetComponent<EnemyDetectionArea>();
         _enemyPatrolBehaviour = GetComponent<EnemyPatrolBehaviour>();
+        _cinemachineCameraShake = FindObjectOfType<CinemachineCameraShake>();
 
         _damageHandler.OnDamageTaken += ReceiveDamage;
 
@@ -78,10 +80,12 @@ public class NavMeshEnemyController : MonoBehaviour
             fillEnemyHealthBar.FillEnemySliderValue();
             _enemyAnimator.Play(ColorChange, 0, 0.0f);
             Debug.Log("ouch, it hurts" + HP);
+            _cinemachineCameraShake.Shake(5f, .1f);
             if (HP <= 0)
             {
                 Destroy(transform.parent.gameObject);
             }
+
         }
     }
 }
