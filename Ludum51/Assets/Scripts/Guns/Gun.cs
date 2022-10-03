@@ -28,6 +28,7 @@ public class Gun : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
+        Debug.Log(other.name + " " + other.tag);
         if (other.CompareTag(_targetTag))
         {
             TryDamageTarget(other);
