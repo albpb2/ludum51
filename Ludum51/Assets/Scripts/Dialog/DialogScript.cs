@@ -38,8 +38,8 @@ public class DialogScript : MonoBehaviour
 
         if (_currentLineIndex >= 0)
         {
-            GetCurrentLineCharacter().EnableShadow();
-            GetCurrentLineCharacter().EnableShadow();
+            //GetCurrentLineCharacter().EnableShadow();
+            //GetCurrentLineCharacter().EnableShadow();
         }
 
         _currentLineIndex++;
@@ -50,7 +50,7 @@ public class DialogScript : MonoBehaviour
             _audioSource.pitch = 1 + Random.Range(-0.1f, 0.1f);
             _audioSource.PlayOneShot(_textAudio, 0.3f);
 
-            GetCurrentLineCharacter().DisableShadow();
+            //GetCurrentLineCharacter().DisableShadow();
             _textBox.text = FormatLine(_lines[_currentLineIndex]);
         }
 
@@ -75,15 +75,7 @@ public class DialogScript : MonoBehaviour
 
     private string FormatLine(DialogLine dialogLine)
     {
-        if (GetCurrentLineCharacter().CharacterName == "")
-        {
-            return $"<b>{GetCurrentLineCharacter().CharacterName}</b> {dialogLine.TextLine}";
-        }
-        else
-        {
             return $"<b>{GetCurrentLineCharacter().CharacterName}:</b> {dialogLine.TextLine}";
-        }
-        
     }
 }
 

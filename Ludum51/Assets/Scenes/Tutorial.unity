@@ -1953,6 +1953,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 565376746}
     m_Modifications:
+    - target: {fileID: 430641123, guid: d7a28b0f9175ddb4c93fceb3077c6b7a, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 786911521}
     - target: {fileID: 1268829171192560490, guid: d7a28b0f9175ddb4c93fceb3077c6b7a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2933,6 +2937,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764536002}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &786911521 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1770242054613097156, guid: d7a28b0f9175ddb4c93fceb3077c6b7a, type: 3}
+  m_PrefabInstance: {fileID: 590035900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &838376260 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 629532864778268176, guid: 4e5ede2005580514d9fb99d7f382f35a, type: 3}
@@ -6522,7 +6531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1788294881435778769, guid: 27a3c3bf79aa84d4684233eacc97f3ef, type: 3}
       propertyPath: _characterId
-      value: DialogCharacter_Tech
+      value: CharacterDialog_Tech
       objectReference: {fileID: 0}
     - target: {fileID: 1788294881435778769, guid: 27a3c3bf79aa84d4684233eacc97f3ef, type: 3}
       propertyPath: _characterName
@@ -6702,30 +6711,35 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: _lines.Array.size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: _lines.Array.data[0].TextLine
-      value: Que tal andamios
+      value: "Hey Fury. It\u2019s TECH here. Good to know you are in charge. "
       objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: _lines.Array.data[1].TextLine
-      value: pueeeeeeeh bien
+      value: "I\u2019ve made my research, the bunker has a 10 sec security system,
+        that will be activated the moment you set a foot inside."
       objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: _lines.Array.data[2].TextLine
-      value: En concreto tendras 10 segundos para encontrar el terminal y otros 10
-        para lograr escapar
+      value: 'This means: every 10 secs you will have to press the letter E in the
+        computers you find in your path to avoid the system.'
       objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: _lines.Array.data[3].TextLine
-      value: En concreto tendras 10 segundos para encontrar el terminal y otros 10
-        para lograr escapar
+      value: But be careful, you have to press E when there are, at least, 3 seconds
+        left to end the countdown.
       objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: _lines.Array.data[4].TextLine
-      value: En concreto tendras 10 segundos para encontrar el terminal y otros 10
-        para lograr escapar
+      value: Also you will need to do it in every computer of the level to open the
+        doors and continue your raid.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[5].TextLine
+      value: Sounds easy for someone like you. Hahahaha.
       objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: _lines.Array.data[0].CharacterId
@@ -6733,23 +6747,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: _lines.Array.data[1].CharacterId
-      value: DialogCharacter_Bauss
+      value: CharacterDialog_Tech
       objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: _lines.Array.data[2].CharacterId
-      value: DialogCharacter_Tech
+      value: CharacterDialog_Tech
       objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: _lines.Array.data[3].CharacterId
-      value: DialogCharacter_Tech
+      value: CharacterDialog_Tech
       objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: _lines.Array.data[4].CharacterId
-      value: DialogCharacter_Tech
+      value: CharacterDialog_Tech
       objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: _lines.Array.data[5].CharacterId
-      value: DialogCharacter_Tech
+      value: CharacterDialog_Tech
       objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872009, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: m_Name
@@ -6830,7 +6844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9080706443528547237, guid: 0376227842412604bab66364ccdc9a36, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080706443528547237, guid: 0376227842412604bab66364ccdc9a36, type: 3}
       propertyPath: m_AnchorMin.x
@@ -6838,7 +6852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9080706443528547237, guid: 0376227842412604bab66364ccdc9a36, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080706443528547237, guid: 0376227842412604bab66364ccdc9a36, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6882,7 +6896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9080706443528547237, guid: 0376227842412604bab66364ccdc9a36, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -412
+      value: -337
       objectReference: {fileID: 0}
     - target: {fileID: 9080706443528547237, guid: 0376227842412604bab66364ccdc9a36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
