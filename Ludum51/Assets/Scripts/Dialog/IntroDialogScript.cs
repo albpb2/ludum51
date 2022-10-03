@@ -75,7 +75,7 @@ public class IntroDialogScript : MonoBehaviour
 
     private string FormatLine(DialogLine dialogLine)
     {
-            return $"<b>{GetCurrentLineCharacter().CharacterName}</b> {dialogLine.TextLine}";
+            return $"<b>{GetCurrentLineCharacter().CharacterName}</b>{dialogLine.TextLine}";
     }
 }
 
