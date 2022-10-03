@@ -36,7 +36,7 @@ public class SampleScene : MonoBehaviour
 
         if (_dialogScript.IsFinished)
         {
-            _gameManager.ToggleMenu();
+            _gameManager.Resume();
             _dialogPanel.SetActive(false);
         }
     }

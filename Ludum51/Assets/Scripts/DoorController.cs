@@ -1,13 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DoorController : MonoBehaviour
 {
     private bool _isUnlock;
     [SerializeField] Animator _doorAnimator;
-   
+    [SerializeField] TypingGameController _typingPanel;
+
+    private GameManager _gameManager;
+
+    private void Start()
+    {
+        _gameManager = FindObjectOfType<GameManager>();
+    }
+
     public void UnlockDoor()
     {
         _isUnlock = true;
@@ -20,7 +26,7 @@ public class DoorController : MonoBehaviour
         {
             _doorAnimator.SetTrigger("IsOpen");
             AudioManagerController.instance.PlaySFX(4);
-            StartCoroutine(ChangeSceneWithDelay());
+            StartCoroutine(ShowTypingPanelWithDelay());
         }
         else
         {
@@ -28,10 +34,11 @@ public class DoorController : MonoBehaviour
             AudioManagerController.instance.PlaySFX(11);
         }
     }
-    IEnumerator ChangeSceneWithDelay()
+
+    IEnumerator ShowTypingPanelWithDelay()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
+        _gameManager.Pause();
+        _typingPanel.gameObject.SetActive(true);
     }
 }
