@@ -25,6 +25,7 @@ public class DoorController : MonoBehaviour
         else
         {
             _doorAnimator.SetTrigger("Error");
+            AudioManagerController.instance.PlaySFX(11);
         }
     }
     IEnumerator ChangeSceneWithDelay()

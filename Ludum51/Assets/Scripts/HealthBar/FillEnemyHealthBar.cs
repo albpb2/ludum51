@@ -23,14 +23,15 @@ public class FillEnemyHealthBar : MonoBehaviour
         Debug.Log($"Slider.Value: {slider.value} Slider.MaxValue: {slider.maxValue}");
         if (slider.value <= slider.maxValue * 0.2f)
         {
-            fillImage.color = Color.red;
+            fillImage.color = new Color(0.5849056f, 0.234514f, 0.234514f); //Red
         }
         else if (slider.value <= slider.maxValue * 0.5f)
         {
-            fillImage.color = Color.yellow;
-        }else
+            fillImage.color = new Color(0.5849056f, 0.234514f, 0.234514f); //Red
+        }
+        else
         {
-            fillImage.color = Color.green;
+            fillImage.color = new Color(0.8196079f, 0.4588236f, 0.2745098f); //Orange
         }
     }
 
