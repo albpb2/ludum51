@@ -5608,6 +5608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillEnemyHealthBar: {fileID: 1268829172038159914}
+  _enemyAnimator: {fileID: 8292466265661926968}
+  _enemyCanvas: {fileID: 1268829172781295407}
 --- !u!114 &1859868499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5634,7 +5636,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _routeBegin: {fileID: 1081064689}
   _routeEnd: {fileID: 658964842}
-  _animator: {fileID: 8292466265661926968}
 --- !u!1 &1268829172038159912
 GameObject:
   m_ObjectHideFlags: 0
@@ -6008,11 +6009,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 712981625225674335, guid: bb3daaa0e826d7841b3dfa0602606eb2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bb3daaa0e826d7841b3dfa0602606eb2, type: 3}
---- !u!95 &8292466265661926968 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3244520730652457293, guid: bb3daaa0e826d7841b3dfa0602606eb2, type: 3}
-  m_PrefabInstance: {fileID: 6778507086870239093}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8292466265661926965 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3244520730652457280, guid: bb3daaa0e826d7841b3dfa0602606eb2, type: 3}
@@ -6021,6 +6017,11 @@ GameObject:
 --- !u!4 &8292466265661926967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3244520730652457282, guid: bb3daaa0e826d7841b3dfa0602606eb2, type: 3}
+  m_PrefabInstance: {fileID: 6778507086870239093}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8292466265661926968 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3244520730652457293, guid: bb3daaa0e826d7841b3dfa0602606eb2, type: 3}
   m_PrefabInstance: {fileID: 6778507086870239093}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &979455555239189569

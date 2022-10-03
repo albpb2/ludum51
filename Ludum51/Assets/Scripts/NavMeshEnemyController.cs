@@ -9,10 +9,10 @@ public class NavMeshEnemyController : MonoBehaviour
     private Vector3 _initialPosition;
 
     [SerializeField] FillEnemyHealthBar fillEnemyHealthBar;
+    [SerializeField] Animator _enemyAnimator;
+    [SerializeField] GameObject _enemyCanvas;
 
-    private Animator _enemyAnimator;
     private DamageHandler _damageHandler;
-    private EnemyDetectionArea _enemyDetectionArea;
     private NavMeshAgent _agent;
     private EnemyPatrolBehaviour _enemyPatrolBehaviour;
     private CinemachineCameraShake _cinemachineCameraShake;
@@ -20,14 +20,13 @@ public class NavMeshEnemyController : MonoBehaviour
     public bool IsPlayerInArea { get; private set; }
     public int HP { get; set; } = 100;
     public int HpMax { get; set; } = 100;
+    public bool IsDead => HP <= 0;
 
     private void Start()
     {
         _initialPosition = transform.position;
-        _enemyAnimator = GetComponentInParent<Animator>();
         _damageHandler = GetComponent<DamageHandler>();
         _agent = GetComponent<NavMeshAgent>();
-        _enemyDetectionArea = GetComponent<EnemyDetectionArea>();
         _enemyPatrolBehaviour = GetComponent<EnemyPatrolBehaviour>();
         _cinemachineCameraShake = FindObjectOfType<CinemachineCameraShake>();
 
@@ -83,8 +82,10 @@ public class NavMeshEnemyController : MonoBehaviour
             _cinemachineCameraShake.Shake(5f, .1f);
             if (HP <= 0)
             {
+                _enemyAnimator.SetTrigger("Death");
                 AudioManagerController.instance.PlaySFX(14);
-                Destroy(transform.parent.gameObject);
+                gameObject.SetActive(false);
+                _enemyCanvas.SetActive(false);
             }
 
         }

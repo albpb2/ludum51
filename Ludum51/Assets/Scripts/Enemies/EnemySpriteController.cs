@@ -26,6 +26,11 @@ public class EnemySpriteController : MonoBehaviour
 
     private void Update()
     {
+        if (_navMeshEnemyController.IsDead)
+        {
+            return;
+        }
+
         if (_navMeshEnemyController.IsPlayerInArea)
         {
             if (Physics.Raycast(transform.position, _playerTransform.position - transform.position, out _raycastHit, 30)

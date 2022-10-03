@@ -5060,7 +5060,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1268829171192560490}
-  - component: {fileID: 55491718}
   m_Layer: 6
   m_Name: EnemyStaticPrefab
   m_TagString: Enemy
@@ -5085,25 +5084,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &55491718
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1268829171192560491}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f1e31eeae9d364b6491ae977739e32e7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1268829171469003022
 GameObject:
   m_ObjectHideFlags: 0
@@ -5354,6 +5334,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillEnemyHealthBar: {fileID: 1268829172038159914}
+  _enemyAnimator: {fileID: 1770242054613097156}
+  _enemyCanvas: {fileID: 1268829172781295407}
 --- !u!114 &1859868499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5380,7 +5362,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _routeBegin: {fileID: 0}
   _routeEnd: {fileID: 0}
-  _animator: {fileID: 1770242054613097156}
 --- !u!1 &1268829172038159912
 GameObject:
   m_ObjectHideFlags: 0
@@ -5754,6 +5735,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 712981625225674335, guid: bb3daaa0e826d7841b3dfa0602606eb2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bb3daaa0e826d7841b3dfa0602606eb2, type: 3}
+--- !u!1 &1770242054613097161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3244520730652457280, guid: bb3daaa0e826d7841b3dfa0602606eb2, type: 3}
+  m_PrefabInstance: {fileID: 3861823138157683593}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1770242054613097156 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3244520730652457293, guid: bb3daaa0e826d7841b3dfa0602606eb2, type: 3}
@@ -5762,11 +5748,6 @@ Animator:
 --- !u!4 &1770242054613097163 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3244520730652457282, guid: bb3daaa0e826d7841b3dfa0602606eb2, type: 3}
-  m_PrefabInstance: {fileID: 3861823138157683593}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1770242054613097161 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3244520730652457280, guid: bb3daaa0e826d7841b3dfa0602606eb2, type: 3}
   m_PrefabInstance: {fileID: 3861823138157683593}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6500478605786346709
