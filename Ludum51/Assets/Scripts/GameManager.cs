@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 0f;
-        IsPaused = true;
+        Pause();
+
         computerControllers = FindObjectsOfType<ComputerController>();
         _timerController = FindObjectOfType<TimerController>();
         _doorController = FindObjectOfType<DoorController>();
@@ -83,17 +83,28 @@ public class GameManager : MonoBehaviour
 
     public void ToggleMenu()
     {
-        IsPaused = !IsPaused;
-        if (!IsPaused)
+        if (IsPaused)
         {
-            Time.timeScale = 1;
+            Resume();
             pausePanel.SetActive(false);
         }
         else
         {
-            Time.timeScale = 0;
+            Pause();
             pausePanel.SetActive(true);
         }
+    }
+
+    public void Pause()
+    {
+        IsPaused = true;
+        Time.timeScale = 0;
+    }
+
+    public void Resume()
+    {
+        IsPaused = false;
+        Time.timeScale = 1;
     }
 
     public void GameOver()

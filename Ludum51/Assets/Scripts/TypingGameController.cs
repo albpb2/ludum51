@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TypingGameController : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class TypingGameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (_nextCharacterIndex < _passwordTextLowerCase.Length && Input.anyKeyDown)
         {
             foreach (KeyCode vKey in _keyCodes)
             {
@@ -41,8 +42,7 @@ public class TypingGameController : MonoBehaviour
 
                         if (_nextCharacterIndex == _passwordText.Length)
                         {
-                            //win
-                            Debug.Log("Has Ganado, yei...");
+                            StartCoroutine(ChangeSceneWithDelay());
                         }
                     }
                     else
@@ -50,8 +50,24 @@ public class TypingGameController : MonoBehaviour
                         _playerTyping.text = "";
                         _nextCharacterIndex = 0;
                     }
+                    break;
                 }
             }
         }
+    }
+
+    private IEnumerator ChangeSceneWithDelay()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        var nextSceneByScene = new Dictionary<string, string>
+        {
+            [SceneNames.Tutorial] = SceneNames.Room1,
+            [SceneNames.Room1] = SceneNames.Credits
+        };
+        if (!nextSceneByScene.TryGetValue(SceneManager.GetActiveScene().name, out var nextScene))
+        {
+            nextScene = SceneNames.Credits;
+        }
+        SceneManager.LoadScene(nextScene);
     }
 }
