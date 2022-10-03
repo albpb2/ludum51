@@ -34,7 +34,7 @@ public class TimerController : MonoBehaviour
 
         if (TimeLeft <= 0.0f)
         {
-            //OnTimerFinish?.Invoke();
+            OnTimerFinish?.Invoke();
         }
     }
 
