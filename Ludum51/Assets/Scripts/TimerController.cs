@@ -23,14 +23,7 @@ public class TimerController : MonoBehaviour
     void Update()
     {
         TimeLeft -= Time.deltaTime;
-        if (TimeLeft < 9)
-        {
-            _timerText.text = "" + (int)(TimeLeft + 1);
-        }
-        else
-        {
-            _timerText.text = "" + (int)(TimeLeft + 1);
-        }
+        _timerText.text = "" + Mathf.Min((int)(TimeLeft + 1), 10);
 
         if (TimeLeft <= 0.0f)
         {
