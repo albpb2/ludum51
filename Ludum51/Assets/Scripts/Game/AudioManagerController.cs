@@ -5,7 +5,17 @@ using UnityEngine;
 public class AudioManagerController : MonoBehaviour
 {
     public static AudioManagerController instance;
-    public AudioSource menuTheme, gameplayTheme, endTheme;
+    [Header("Music Settings")]
+    public AudioSource menuTheme;
+    public AudioSource gameplayTheme;
+    public AudioSource endTheme;
+
+    [Header("Alarm Sounds")]
+    public AudioSource tenSecondsAlarm;
+    public AudioSource fiveSecondsAlarm;
+    public AudioSource threeSecondsAlarm;
+
+    [Header("SFX Sounds")]
     public AudioSource[] soundFXList;
 
     public void Awake()
@@ -65,5 +75,29 @@ public class AudioManagerController : MonoBehaviour
     public void StopSFX( int soundPosition)
     {
         soundFXList[soundPosition].Stop();
+    }
+
+
+    // ALARM
+
+    public void PlayTenSecondsAlarm()
+    {
+        threeSecondsAlarm.Stop();
+        fiveSecondsAlarm.Stop();
+        tenSecondsAlarm.Play();
+    }
+
+    public void PlayFiveSecondsAlarm()
+    {
+        threeSecondsAlarm.Stop();
+        fiveSecondsAlarm.Play();
+        tenSecondsAlarm.Stop();
+    }
+
+    public void PlayThreeSecondsAlarm()
+    {
+        threeSecondsAlarm.Play();
+        fiveSecondsAlarm.Stop();
+        tenSecondsAlarm.Stop();
     }
 }
