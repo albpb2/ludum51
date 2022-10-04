@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -852,6 +852,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2142887128}
     m_Modifications:
+    - target: {fileID: 198505391, guid: 69678617bf3a1489696f1571a10d2ceb, type: 3}
+      propertyPath: _typingPanel
+      value: 
+      objectReference: {fileID: 2124571883}
     - target: {fileID: 7892711229765536929, guid: 69678617bf3a1489696f1571a10d2ceb, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2494,11 +2498,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1680106957}
-  - {fileID: 822698651}
   - {fileID: 987089267}
+  - {fileID: 822698651}
   - {fileID: 1076176212}
-  - {fileID: 1016895373}
   - {fileID: 1944774930}
+  - {fileID: 1016895373}
   - {fileID: 199542515}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -6968,6 +6972,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 508c1f91c2e4aef49b656089c0264a38, type: 3}
+--- !u!114 &2124571883 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5451522896925896077, guid: 508c1f91c2e4aef49b656089c0264a38, type: 3}
+  m_PrefabInstance: {fileID: 2124571882}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb124a75b50722649a78bb10c74eb421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2142887127
 GameObject:
   m_ObjectHideFlags: 0
@@ -7232,6 +7247,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[0].TextLine
+      value: 'Great job Fury. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[1].TextLine
+      value: 'This next floor has 3 computers to be hacked.  '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[2].TextLine
+      value: 'You have reached far, I guess the head computer its closer than you
+        think. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893960981808872008, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
+      propertyPath: _lines.Array.data[3].TextLine
+      value: 'Go and kick those asses! '
+      objectReference: {fileID: 0}
     - target: {fileID: 6893960981808872009, guid: 6c0a73db0b099c648b3e95b8d12d07a5, type: 3}
       propertyPath: m_Name
       value: DialogController

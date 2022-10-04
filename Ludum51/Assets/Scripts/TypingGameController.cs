@@ -62,7 +62,8 @@ public class TypingGameController : MonoBehaviour
         var nextSceneByScene = new Dictionary<string, string>
         {
             [SceneNames.Tutorial] = SceneNames.Room1,
-            [SceneNames.Room1] = SceneNames.Credits
+            [SceneNames.Room1] = SceneNames.Room2,
+            [SceneNames.Room2] = SceneNames.Credits
         };
         if (!nextSceneByScene.TryGetValue(SceneManager.GetActiveScene().name, out var nextScene))
         {
