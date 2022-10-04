@@ -77,7 +77,8 @@ public class NavMeshEnemyController : MonoBehaviour
             HP -= damage;
             fillEnemyHealthBar.slider.gameObject.SetActive(true);
             fillEnemyHealthBar.FillEnemySliderValue();
-            _enemyAnimator.Play(ColorChange, 0, 0.0f);
+            //_enemyAnimator.Play(ColorChange, 0, 0.0f);
+            _enemyAnimator.SetTrigger("Hit");
             Debug.Log("ouch, it hurts" + HP);
             _cinemachineCameraShake.Shake(5f, .1f);
             if (HP <= 0)
