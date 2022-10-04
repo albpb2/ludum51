@@ -19,12 +19,15 @@ public class NavMeshAgentController : MonoBehaviour
     private PlayerSpriteController _playerSpriteController;
     private Animator _playerAnimator;
     private RaycastHit [] computerRayCastResults = new RaycastHit [20];
-    
+    private bool _isImmune;
+
 
     public float Speed => m_Speed;
 
     private void Awake()
     {
+        _isImmune = false;
+
         _rigidbody = GetComponent<Rigidbody>();
         _damageHandler = GetComponent<DamageHandler>();
         _playerSpriteController = GetComponentInChildren<PlayerSpriteController>();
@@ -76,7 +79,7 @@ public class NavMeshAgentController : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+private void OnDisable()
     {
         _damageHandler.OnDamageTaken -= ReceiveDamage;
     }
@@ -85,9 +88,14 @@ public class NavMeshAgentController : MonoBehaviour
     {
         if (damage > 0)
         {
-            HP -= damage;
-            fillHealthBar.gameObject.SetActive(true);
-            fillHealthBar.FillSliderValue();
+            if(!_isImmune)
+            {
+                HP -= damage;
+                fillHealthBar.gameObject.SetActive(true);
+                fillHealthBar.FillSliderValue();
+                StartCoroutine(ActivateInmunity());
+            }
+           
             if (HP <= 0)
             {
                 AudioManagerController.instance.PlaySFX(12);
@@ -109,4 +117,14 @@ public class NavMeshAgentController : MonoBehaviour
         _gameManager.GameOver();
 
     }
+
+    public IEnumerator ActivateInmunity()
+    {
+        _isImmune = true;
+        _playerAnimator.SetTrigger("Hit");
+        yield return new WaitForSeconds(0.2f);
+        _isImmune = false;
+    }
+
+
 }
