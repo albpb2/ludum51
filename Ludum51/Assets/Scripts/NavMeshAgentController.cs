@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class NavMeshAgentController : MonoBehaviour
@@ -16,6 +17,7 @@ public class NavMeshAgentController : MonoBehaviour
     private DamageHandler _damageHandler;
     private CinemachineCameraShake _cinemachineCameraShake;
     private PlayerSpriteController _playerSpriteController;
+    private Animator _playerAnimator;
     private RaycastHit [] computerRayCastResults = new RaycastHit [20];
     
 
@@ -26,6 +28,7 @@ public class NavMeshAgentController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _damageHandler = GetComponent<DamageHandler>();
         _playerSpriteController = GetComponentInChildren<PlayerSpriteController>();
+        _playerAnimator = _playerSpriteController.GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -88,6 +91,7 @@ public class NavMeshAgentController : MonoBehaviour
             if (HP <= 0)
             {
                 AudioManagerController.instance.PlaySFX(12);
+                //StartCoroutine("Ending");
                 _gameManager.GameOver();
             }
             else
@@ -96,5 +100,13 @@ public class NavMeshAgentController : MonoBehaviour
             }
             Debug.Log("ouch, it hurts" + HP);
         }
+    }
+
+    public IEnumerator Ending()
+    {
+        _playerAnimator.SetTrigger("Death");
+        yield return new WaitForSeconds(2f);
+        _gameManager.GameOver();
+
     }
 }
