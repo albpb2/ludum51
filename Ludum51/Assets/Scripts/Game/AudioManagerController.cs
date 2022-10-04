@@ -100,4 +100,20 @@ public class AudioManagerController : MonoBehaviour
         fiveSecondsAlarm.Stop();
         tenSecondsAlarm.Stop();
     }
+
+    public void StopAllAlarm()
+    {
+        threeSecondsAlarm.Stop();
+        fiveSecondsAlarm.Stop();
+        tenSecondsAlarm.Stop();
+    }
+
+    public void PauseAllAlarm()
+    {
+        threeSecondsAlarm.Pause();
+        fiveSecondsAlarm.Pause();
+        tenSecondsAlarm.Pause();
+    }
+
+
 }

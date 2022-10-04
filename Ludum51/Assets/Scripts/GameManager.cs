@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        AudioManagerController.instance.PauseAllAlarm();
         IsPaused = true;
         Time.timeScale = 0;
     }
@@ -109,6 +110,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        AudioManagerController.instance.StopAllAlarm();
         gameOverPanel.SetActive(true);
         Time.timeScale = 0f;
     }

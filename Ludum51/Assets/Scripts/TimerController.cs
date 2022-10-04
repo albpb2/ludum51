@@ -60,12 +60,13 @@ public class TimerController : MonoBehaviour
 
     public void ResetTimer()
     {
-        TimeLeft = 10f;
-        OnTimerRestart?.Invoke();
-
         _is10SecondsTimerPLayed = false;
         _is5SecondsTimerPLayed  = false;
         _is3SecondsTimerPlayed  = false;
+        AudioManagerController.instance.StopAllAlarm();
+
+        TimeLeft = 10f;
+        OnTimerRestart?.Invoke();
     }
 
 }
