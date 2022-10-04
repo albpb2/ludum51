@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     private ComputerController[] computerControllers;
     private TimerController _timerController;
     private DoorController _doorController;
+    private bool _is10SecondsAlarmPlaying;
+    private bool _is5SecondsAlarmPlaying;
+    private bool _is3SecondsAlarmPlaying;
+
     public bool IsPaused { get; set; }
 
     public static void Exit()
@@ -97,13 +101,43 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        if (AudioManagerController.instance.tenSecondsAlarm.isPlaying)
+        {
+            _is10SecondsAlarmPlaying = true;
+        }
+        else if (AudioManagerController.instance.fiveSecondsAlarm.isPlaying)
+        {
+            _is5SecondsAlarmPlaying = true;
+        }
+        else if (AudioManagerController.instance.threeSecondsAlarm.isPlaying)
+        {
+            _is3SecondsAlarmPlaying = true;
+        }
+
         AudioManagerController.instance.PauseAllAlarm();
         IsPaused = true;
         Time.timeScale = 0;
+
     }
 
     public void Resume()
     {
+        if (_is10SecondsAlarmPlaying)
+        {
+            AudioManagerController.instance.PlayTenSecondsAlarm();
+            _is10SecondsAlarmPlaying = false;
+        }
+        else if (_is5SecondsAlarmPlaying)
+        {
+            AudioManagerController.instance.PlayFiveSecondsAlarm();
+            _is5SecondsAlarmPlaying = false;
+        }
+        else if (_is3SecondsAlarmPlaying)
+        {
+            AudioManagerController.instance.PlayThreeSecondsAlarm();
+            _is3SecondsAlarmPlaying = false;
+        }
+
         IsPaused = false;
         Time.timeScale = 1;
     }
