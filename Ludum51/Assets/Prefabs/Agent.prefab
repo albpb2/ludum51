@@ -227,7 +227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3031719476296577428}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.18, y: 0.15, z: 4.08}
+  m_LocalPosition: {x: 1.18, y: 0.32, z: 4.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4273530611987811667}
@@ -801,7 +801,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 2
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -4187,11 +4187,11 @@ ParticleSystem:
   TrailModule:
     enabled: 0
     mode: 0
-    ratio: 1
+    ratio: 0.5
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4246,9 +4246,9 @@ ParticleSystem:
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
-    dieWithParticles: 1
+    dieWithParticles: 0
     sizeAffectsWidth: 1
-    sizeAffectsLifetime: 0
+    sizeAffectsLifetime: 1
     inheritParticleColor: 1
     generateLightingData: 0
     splitSubEmitterRibbons: 0
@@ -4319,7 +4319,7 @@ ParticleSystem:
     widthOverTrail:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5018,7 +5018,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d31b02a7eb3224a358529e4b9e2d9064, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5050,7 +5050,7 @@ ParticleSystemRenderer:
   m_NormalDirection: 1
   m_ShadowBias: 0
   m_RenderAlignment: 0
-  m_Pivot: {x: 0, y: 0, z: 0}
+  m_Pivot: {x: -0.12, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
@@ -5852,6 +5852,7 @@ GameObject:
   - component: {fileID: 4273530613738860595}
   - component: {fileID: 4273530613201626249}
   - component: {fileID: 963354339}
+  - component: {fileID: 2573872611972261870}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
@@ -5959,6 +5960,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterSpriteRenderer: {fileID: 4273530613738860595}
   _gunSpriteRenderer: {fileID: 4273530611987811666}
+--- !u!114 &2573872611972261870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4273530613738860589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4757a2c09d3f8f498a2cb14ac92489f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6462514869701916253
 GameObject:
   m_ObjectHideFlags: 0

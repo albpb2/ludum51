@@ -44,13 +44,13 @@ public class TimerController : MonoBehaviour
             AudioManagerController.instance.PlayTenSecondsAlarm();
             //play first timer sound
         }
-        else if ((int)TimeLeft == 5 && !_is5SecondsTimerPLayed)
+        else if ((int)TimeLeft == 4 && !_is5SecondsTimerPLayed)
         {
             _is5SecondsTimerPLayed = true;
             AudioManagerController.instance.PlayFiveSecondsAlarm();
             //play second timer sound
         }
-        else if ((int)TimeLeft == 3 && !_is3SecondsTimerPlayed)
+        else if ((int)TimeLeft == 2 && !_is3SecondsTimerPlayed)
         {
             _is3SecondsTimerPlayed = true;
             AudioManagerController.instance.PlayThreeSecondsAlarm();

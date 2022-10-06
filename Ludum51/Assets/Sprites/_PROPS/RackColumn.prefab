@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 281985974953281365}
   - component: {fileID: 745392648842393036}
   m_Layer: 0
-  m_Name: Rack2
+  m_Name: RackColumn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7272259110552674341}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 38.4107, y: 65.6, z: -0.5551}
   m_LocalScale: {x: 1, y: 0.6666666, z: 1}
   m_Children:
   - {fileID: 7081153891373340707}
@@ -72,12 +72,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4802373616577951091, guid: 625eb52b123ca4bc68a8f2ba2013ddc8, type: 3}
+  m_Sprite: {fileID: -8887605192545522, guid: 625eb52b123ca4bc68a8f2ba2013ddc8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 5.498884, y: 6.359528}
+  m_Size: {x: 1.6214336, y: 7.229872}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -109,13 +109,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8778232908210191634}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.0079, y: 0.1428, z: -0}
-  m_LocalScale: {x: -2.1394536, y: 7.031422, z: 6.1270843}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0349, y: 0.0656, z: -0}
+  m_LocalScale: {x: -1.7195424, y: 8.138783, z: 1.7896497}
   m_Children: []
   m_Father: {fileID: 281985974953281365}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4247877996299992937
 MeshFilter:
   m_ObjectHideFlags: 0
