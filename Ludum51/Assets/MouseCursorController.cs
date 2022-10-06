@@ -5,14 +5,16 @@ using UnityEngine;
 public class MouseCursorController : MonoBehaviour
 {
     public Camera gameCamera;
+
     private void Start()
     {
         //Cursor.visible = false;
     }
     void Update()
     {
-        Vector2 cursorPos = gameCamera.ScreenToViewportPoint(Input.mousePosition);
-        gameObject.transform.position = cursorPos;
+        Vector3 cursorPos = gameCamera.ScreenToViewportPoint(Input.mousePosition);
+        cursorPos.z = 1f;
+        transform.position = cursorPos;
 
         Debug.Log("" + cursorPos);
     }
