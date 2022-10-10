@@ -3,13 +3,11 @@ using UnityEngine;
 
 public class NavMeshAgentController : MonoBehaviour
 {
-    public float HP { get; set; } = 100f;
-    public float HpMax { get; set; } = 100f;
-
     [SerializeField] FillHealthBar fillHealthBar;
     [SerializeField] float m_Speed = 5f;
     [SerializeField] float maxComputerSearchDistance = 1.5f;
     [SerializeField] float radius = 1.5f;
+    [SerializeField] private GunHolder _gunHolder;
 
     private DoorController _doorController;
     private GameManager _gameManager;
@@ -18,11 +16,15 @@ public class NavMeshAgentController : MonoBehaviour
     private CinemachineCameraShake _cinemachineCameraShake;
     private PlayerSpriteController _playerSpriteController;
     private Animator _playerAnimator;
+    private CapsuleCollider _collider;
     private RaycastHit [] computerRayCastResults = new RaycastHit [20];
     private bool _isImmune;
 
 
+    public float HP { get; private set; } = 100f;
+    public float HpMax { get; private set; } = 100f;
     public float Speed => m_Speed;
+    public bool IsDead => HP <= 0;
 
     private void Awake()
     {
@@ -32,6 +34,7 @@ public class NavMeshAgentController : MonoBehaviour
         _damageHandler = GetComponent<DamageHandler>();
         _playerSpriteController = GetComponentInChildren<PlayerSpriteController>();
         _playerAnimator = _playerSpriteController.GetComponent<Animator>();
+        _collider = GetComponent<CapsuleCollider>();
     }
 
     // Start is called before the first frame update
@@ -48,13 +51,18 @@ public class NavMeshAgentController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         Vector3 playerInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         _rigidbody.MovePosition(transform.position + playerInput * Time.deltaTime * m_Speed);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!IsDead && Input.GetKeyDown(KeyCode.E))
         {
             var resultCount = Physics.SphereCastNonAlloc(transform.position, radius, transform.forward ,computerRayCastResults, maxComputerSearchDistance);
             for (int i = 0; i < resultCount; i++)
@@ -86,6 +94,11 @@ private void OnDisable()
 
     public void ReceiveDamage(int damage)
     {
+        if (HP <= 0)
+        {
+            return;
+        }
+
         if (damage > 0)
         {
             if(!_isImmune)
@@ -98,9 +111,8 @@ private void OnDisable()
            
             if (HP <= 0)
             {
-                AudioManagerController.instance.PlaySFX(12);
-                //StartCoroutine("Ending");
-                _gameManager.GameOver();
+                KillPlayer();
+                StartCoroutine(WaitAndEndGame());
             }
             else
             {
@@ -110,10 +122,9 @@ private void OnDisable()
         }
     }
 
-    public IEnumerator Ending()
+    public IEnumerator WaitAndEndGame()
     {
-        _playerAnimator.SetTrigger("Death");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         _gameManager.GameOver();
 
     }
@@ -126,5 +137,11 @@ private void OnDisable()
         _isImmune = false;
     }
 
-
+    private void KillPlayer()
+    {
+        _playerAnimator.SetBool("IsDead", true);
+        AudioManagerController.instance.PlaySFX(12);
+        _gunHolder.gameObject.SetActive(false);
+        _collider.enabled = false;
+    }
 }

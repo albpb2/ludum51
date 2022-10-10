@@ -12,7 +12,7 @@ public class TimerController : MonoBehaviour
     [SerializeField] TextMeshProUGUI _timerText;
     public float TimeLeft { get; private set; } = 10f;
 
-    private GameManager _gameManager;
+    private NavMeshAgentController _playerController;
     private bool _is10SecondsTimerPLayed;
     private bool _is5SecondsTimerPLayed;
     private bool _is3SecondsTimerPlayed;
@@ -20,12 +20,17 @@ public class TimerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _gameManager = FindObjectOfType<GameManager>();
+        _playerController = FindObjectOfType<NavMeshAgentController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (_playerController.IsDead)
+        {
+            return;
+        }
+
         TimeLeft -= Time.deltaTime;
         _timerText.text = "" + Mathf.Min((int)(TimeLeft + 1), 10);
         ChangeTimerSound();

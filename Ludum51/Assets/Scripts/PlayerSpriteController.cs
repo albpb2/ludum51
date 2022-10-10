@@ -21,6 +21,11 @@ public class PlayerSpriteController : MonoBehaviour
 
     private void Update()
     {
+        if (_controller.IsDead)
+        {
+            return;
+        }
+
         var flip = MousePositionInWorld.Instance.Value.x < transform.position.x;
 
         _characterSpriteRenderer.flipX = flip;

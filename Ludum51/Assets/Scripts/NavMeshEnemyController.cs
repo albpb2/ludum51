@@ -54,15 +54,15 @@ public class NavMeshEnemyController : MonoBehaviour
         _enemyPatrolBehaviour.InvokeToggleDestination();
     }
 
-    public void FollowPlayer(GameObject player)
+    public void FollowPlayer(NavMeshAgentController player)
     {
         IsPlayerInArea = true;
         StartCoroutine(UpdatePlayerPosition(player));
     }
 
-    IEnumerator UpdatePlayerPosition(GameObject player)
+    IEnumerator UpdatePlayerPosition(NavMeshAgentController player)
     {
-        while (IsPlayerInArea)
+        while (IsPlayerInArea && !player.IsDead)
         {
             _agent.destination = player.transform.position;
             yield return new WaitForSeconds(.5f);

@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Speed: 15
   maxComputerSearchDistance: 1.5
   radius: 1.5
+  _gunHolder: {fileID: 4273530612381696009}
 --- !u!54 &2030015655054195387
 Rigidbody:
   m_ObjectHideFlags: 0

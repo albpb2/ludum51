@@ -48,7 +48,7 @@ public class EnemyShootingPlayerBehaviour : MonoBehaviour
     {
         while (true)
         {
-            if (_isPlayerInTrigger)
+            if (_isPlayerInTrigger && !_playerController.IsDead)
             {
                 var direction = _playerController.transform.position - gameObject.transform.position;
                 const float maxDistance = 30;
